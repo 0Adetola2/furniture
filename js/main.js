@@ -189,15 +189,55 @@ class TolexApp {
   }
 
   init() {
+    this.bindPWA();
     this.bindHeader();
     this.bindEnquiryDrawer();
     this.bindProductCatalogue();
     this.bindQuickViewModal();
     this.bindTestimonials();
     this.bindContactForm();
+    this.bindRoomStager();
+    this.bindQuotationModal();
+    this.bindVIPBooking();
     this.bindScrollEffects();
     this.updateEnquiryBadge();
     this.renderEnquiryItems();
+  }
+
+  /* --- PWA Service Worker & Install Prompt --- */
+  bindPWA() {
+    // Register Service Worker
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js')
+          .then((reg) => {
+            console.log('TOLEX PWA Service Worker Registered', reg.scope);
+          })
+          .catch((err) => {
+            console.warn('Service Worker registration skipped:', err);
+          });
+      });
+    }
+
+    // PWA Install prompt handling
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      this.deferredPrompt = e;
+      const installBtns = document.querySelectorAll('.pwa-install-btn');
+      installBtns.forEach(btn => {
+        btn.classList.add('visible');
+        btn.addEventListener('click', async () => {
+          if (!this.deferredPrompt) return;
+          this.deferredPrompt.prompt();
+          const { outcome } = await this.deferredPrompt.userChoice;
+          if (outcome === 'accepted') {
+            this.showToast('Thank you for installing TOLEX Web App!');
+          }
+          this.deferredPrompt = null;
+          installBtns.forEach(b => b.classList.remove('visible'));
+        });
+      });
+    });
   }
 
   /* --- Navigation & Header --- */
@@ -859,6 +899,235 @@ class TolexApp {
     this.toastTimeout = setTimeout(() => {
       toast.classList.remove('show');
     }, 3200);
+  }
+
+  /* --- Interactive Room Stager Studio Controller --- */
+  bindRoomStager() {
+    const stagerSection = document.querySelector('.room-stager-section');
+    if (!stagerSection) return;
+
+    this.stagerState = {
+      wall: 'fluted',
+      floor: 'travertine',
+      lighting: 'warm',
+      productId: 'tlx-01'
+    };
+
+    const viewport = document.getElementById('stager-viewport');
+    const titleElem = document.getElementById('stager-piece-title');
+    const descElem = document.getElementById('stager-piece-desc');
+    const dimElem = document.getElementById('stager-piece-dim');
+    const imgElem = document.getElementById('stager-piece-img');
+    const addBtn = document.getElementById('stager-add-enquiry-btn');
+
+    const walls = {
+      fluted: {
+        bg: 'linear-gradient(135deg, #221E1D 0%, #37302E 60%, #1A1716 100%)',
+        label: 'Fluted Charcoal Wood with Gold Inlays'
+      },
+      taupe: {
+        bg: 'linear-gradient(135deg, #7A695B 0%, #A18B78 60%, #5D4F44 100%)',
+        label: 'Venetian Warm Taupe Plaster'
+      },
+      cream: {
+        bg: 'linear-gradient(135deg, #E9D9C7 0%, #D8C5B0 60%, #C4B19C 100%)',
+        label: 'Soft Cashmere Cream Plaster'
+      }
+    };
+
+    const updateView = () => {
+      if (!viewport) return;
+
+      // Update background wall
+      const wallConfig = walls[this.stagerState.wall] || walls.fluted;
+      viewport.style.background = wallConfig.bg;
+
+      // Update lighting class
+      viewport.className = `stager-visual-viewport lighting-${this.stagerState.lighting}`;
+
+      // Update active centerpiece
+      const product = TOLEX_CATALOGUE.find(p => p.id === this.stagerState.productId) || TOLEX_CATALOGUE[0];
+      if (product) {
+        if (titleElem) titleElem.textContent = product.name;
+        if (descElem) descElem.textContent = `${product.description} Configured on ${wallConfig.label}.`;
+        if (dimElem) dimElem.textContent = product.dimensions;
+        if (imgElem) {
+          imgElem.style.opacity = '0';
+          imgElem.style.transform = 'scale(0.95)';
+          setTimeout(() => {
+            imgElem.src = product.image;
+            imgElem.alt = product.name;
+            imgElem.style.opacity = '1';
+            imgElem.style.transform = 'scale(1)';
+          }, 200);
+        }
+      }
+    };
+
+    // Bind centerpiece pills
+    document.querySelectorAll('.stager-piece-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.stager-piece-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        this.stagerState.productId = btn.getAttribute('data-product-id');
+        updateView();
+      });
+    });
+
+    // Bind wall swatch buttons
+    document.querySelectorAll('.stager-wall-swatch').forEach(swatch => {
+      swatch.addEventListener('click', () => {
+        document.querySelectorAll('.stager-wall-swatch').forEach(s => s.classList.remove('active'));
+        swatch.classList.add('active');
+        this.stagerState.wall = swatch.getAttribute('data-wall');
+        updateView();
+      });
+    });
+
+    // Bind lighting buttons
+    document.querySelectorAll('.stager-light-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.stager-light-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        this.stagerState.lighting = btn.getAttribute('data-light');
+        updateView();
+      });
+    });
+
+    // Add Staged Suite to Enquiry
+    if (addBtn) {
+      addBtn.addEventListener('click', () => {
+        this.addToEnquiry(this.stagerState.productId);
+        const wallName = walls[this.stagerState.wall]?.label || 'Custom';
+        this.showToast(`Custom staged suite (${wallName}) saved to your Enquiry List!`);
+      });
+    }
+
+    updateView();
+  }
+
+  /* --- Printable Formal Quotation PDF Generator --- */
+  bindQuotationModal() {
+    const quoteTriggerBtns = document.querySelectorAll('.btn-generate-quotation');
+    const quoteModal = document.getElementById('quotation-modal-backdrop');
+    if (!quoteModal) return;
+
+    const openQuotation = () => {
+      if (this.enquiryList.length === 0) {
+        this.showToast('Please add at least one showroom piece before generating a quotation.');
+        return;
+      }
+
+      const quoteNum = 'TLX-' + Math.floor(100000 + Math.random() * 900000);
+      const today = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+      const validUntil = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+
+      const quoteTableBody = document.getElementById('quotation-table-body');
+      const quoteNumberElem = document.getElementById('quotation-number-val');
+      const quoteDateElem = document.getElementById('quotation-date-val');
+      const quoteValidElem = document.getElementById('quotation-valid-val');
+      const quoteCountElem = document.getElementById('quotation-total-items');
+
+      if (quoteNumberElem) quoteNumberElem.textContent = quoteNum;
+      if (quoteDateElem) quoteDateElem.textContent = today;
+      if (quoteValidElem) quoteValidElem.textContent = validUntil;
+      if (quoteCountElem) quoteCountElem.textContent = `${this.enquiryList.length} Curated Piece${this.enquiryList.length > 1 ? 's' : ''}`;
+
+      if (quoteTableBody) {
+        quoteTableBody.innerHTML = this.enquiryList.map((item, idx) => `
+          <tr>
+            <td style="font-weight:700;">#0${idx + 1}</td>
+            <td>
+              <strong>${item.name}</strong><br>
+              <span style="font-size:0.8rem; color:#8E827D;">Dimensions: ${item.dimensions}</span>
+            </td>
+            <td><span class="gold-badge" style="padding:4px 10px; font-size:0.7rem;">${item.categoryLabel}</span></td>
+            <td>Bespoke Atelier Order</td>
+            <td style="text-align:right; font-weight:700; color:#C5A66E;">Showroom Quote</td>
+          </tr>
+        `).join('');
+      }
+
+      quoteModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    };
+
+    quoteTriggerBtns.forEach(btn => btn.addEventListener('click', openQuotation));
+
+    const closeBtn = quoteModal.querySelector('.modal-close-btn');
+    if (closeBtn) {
+      closeBtn.addEventListener('click', () => {
+        quoteModal.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    }
+
+    const printBtn = document.getElementById('btn-print-quotation');
+    if (printBtn) {
+      printBtn.addEventListener('click', () => {
+        window.print();
+      });
+    }
+  }
+
+  /* --- VIP Appointment Scheduler (.ICS Export) --- */
+  bindVIPBooking() {
+    const bookingForm = document.getElementById('vip-booking-form');
+    if (!bookingForm) return;
+
+    // Default min date to tomorrow
+    const dateInput = document.getElementById('vip-booking-date');
+    if (dateInput) {
+      const tomorrow = new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString().split('T')[0];
+      dateInput.min = tomorrow;
+      dateInput.value = tomorrow;
+    }
+
+    // Slot button selection
+    let selectedSlot = '10:00 AM';
+    const slotBtns = document.querySelectorAll('.slot-btn');
+    slotBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        slotBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        selectedSlot = btn.getAttribute('data-slot');
+      });
+    });
+
+    bookingForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('vip-name')?.value || 'Guest Client';
+      const email = document.getElementById('vip-email')?.value || '';
+      const date = dateInput?.value || 'Upcoming Date';
+      const serviceType = document.getElementById('vip-service-type')?.value || 'VIP Showroom Viewing';
+
+      // Generate .ICS Calendar File
+      const icsContent = [
+        'BEGIN:VCALENDAR',
+        'VERSION:2.0',
+        'PRODID:-//TOLEX FURNITURE//VIP Booking//EN',
+        'BEGIN:VEVENT',
+        `SUMMARY:TOLEX FURNITURE — ${serviceType}`,
+        `DESCRIPTION:Private appointment for ${name} at TOLEX FURNITURE Showroom (742 Evergreen Luxury Blvd). Dedicated interior consultant assigned.`,
+        `LOCATION:742 Evergreen Luxury Blvd, Suite 100, Design District`,
+        `DTSTART:${date.replace(/-/g, '')}T100000Z`,
+        `DTEND:${date.replace(/-/g, '')}T113000Z`,
+        'STATUS:CONFIRMED',
+        'END:VEVENT',
+        'END:VCALENDAR'
+      ].join('\r\n');
+
+      const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
+      const downloadLink = document.createElement('a');
+      downloadLink.href = window.URL.createObjectURL(blob);
+      downloadLink.setAttribute('download', `TOLEX-VIP-Appointment-${date}.ics`);
+      document.body.appendChild(downloadLink);
+      downloadLink.click();
+      document.body.removeChild(downloadLink);
+
+      this.showToast(`VIP Appointment confirmed for ${date} at ${selectedSlot}! Calendar invitation downloaded.`);
+      bookingForm.reset();
+    });
   }
 }
 

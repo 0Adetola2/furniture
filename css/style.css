@@ -2830,3 +2830,374 @@ textarea.form-control {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* ==========================================================================
+   WEB APP ENHANCEMENTS & PWA MODULES
+   ========================================================================== */
+
+/* PWA Install Button */
+.pwa-install-btn {
+  display: none;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: linear-gradient(135deg, rgba(197, 166, 110, 0.25), rgba(161, 139, 120, 0.25));
+  border: 1px solid var(--c-gold);
+  border-radius: var(--radius-xs);
+  color: var(--c-gold);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: all var(--transition-fast);
+}
+
+.pwa-install-btn.visible {
+  display: inline-flex;
+}
+
+.pwa-install-btn:hover {
+  background: var(--c-gold);
+  color: var(--c-charcoal-deep);
+  box-shadow: var(--shadow-gold);
+}
+
+/* Room Stager Studio Section */
+.room-stager-section {
+  background: linear-gradient(180deg, var(--c-cream-soft) 0%, var(--c-warm-white) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.stager-studio-grid {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.stager-visual-viewport {
+  position: relative;
+  height: 520px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid rgba(197, 166, 110, 0.35);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 32px;
+  transition: background 0.6s ease, filter 0.6s ease;
+}
+
+/* Lighting mood filters */
+.stager-visual-viewport.lighting-daylight {
+  filter: contrast(1.02) brightness(1.02);
+}
+
+.stager-visual-viewport.lighting-warm {
+  filter: sepia(0.18) saturate(1.15) brightness(0.96);
+}
+
+.stager-visual-viewport.lighting-evening {
+  filter: sepia(0.35) saturate(1.2) brightness(0.85);
+}
+
+.stager-viewport-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  z-index: 5;
+}
+
+.stager-live-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background: rgba(34, 30, 29, 0.75);
+  border: 1px solid var(--c-gold);
+  border-radius: var(--radius-full);
+  color: var(--c-gold);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  backdrop-filter: blur(8px);
+}
+
+.stager-live-badge .pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #25D366;
+  box-shadow: 0 0 8px #25D366;
+  animation: pulse 1.8s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(0.9); opacity: 0.8; }
+  50% { transform: scale(1.3); opacity: 1; }
+  100% { transform: scale(0.9); opacity: 0.8; }
+}
+
+.stager-centerpiece-display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto 0;
+  position: relative;
+  z-index: 4;
+}
+
+.stager-centerpiece-img {
+  max-height: 280px;
+  max-width: 90%;
+  object-fit: contain;
+  filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.45));
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+}
+
+.stager-viewport-bottom {
+  background: rgba(22, 19, 18, 0.85);
+  border: 1px solid rgba(197, 166, 110, 0.3);
+  padding: 20px 24px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--c-white);
+  backdrop-filter: blur(8px);
+  z-index: 5;
+}
+
+.stager-viewport-bottom h4 {
+  color: var(--c-white);
+  font-size: 1.25rem;
+  margin-bottom: 2px;
+}
+
+.stager-viewport-bottom p {
+  color: var(--c-cream);
+  font-size: 0.84rem;
+}
+
+/* Stager Controls */
+.stager-controls-panel {
+  background: var(--c-white);
+  border: 1px solid rgba(161, 139, 120, 0.25);
+  border-radius: var(--radius-md);
+  padding: 36px 32px;
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.stager-group-title {
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--c-charcoal);
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.stager-options-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.stager-btn-pill {
+  padding: 8px 16px;
+  background: var(--c-warm-white);
+  border: 1px solid rgba(161, 139, 120, 0.3);
+  border-radius: var(--radius-full);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--c-charcoal);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.stager-btn-pill:hover,
+.stager-btn-pill.active {
+  background: var(--c-charcoal-deep);
+  color: var(--c-gold);
+  border-color: var(--c-charcoal-deep);
+}
+
+.stager-color-swatches {
+  display: flex;
+  gap: 12px;
+}
+
+.stager-swatch {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid transparent;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-fast), border-color var(--transition-fast);
+  position: relative;
+}
+
+.stager-swatch:hover,
+.stager-swatch.active {
+  transform: scale(1.15);
+  border-color: var(--c-gold);
+}
+
+/* Project Room Switcher in Enquiry Drawer */
+.project-room-tabs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 28px;
+  background: rgba(34, 30, 29, 0.05);
+  border-bottom: 1px solid rgba(161, 139, 120, 0.2);
+  overflow-x: auto;
+}
+
+.room-tab-pill {
+  padding: 6px 14px;
+  background: transparent;
+  border: 1px solid rgba(161, 139, 120, 0.3);
+  border-radius: var(--radius-full);
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--c-charcoal);
+  white-space: nowrap;
+}
+
+.room-tab-pill.active {
+  background: var(--c-charcoal-deep);
+  color: var(--c-gold);
+  border-color: var(--c-charcoal-deep);
+}
+
+/* Printable Formal Quotation Document Modal */
+.quotation-modal-dialog {
+  background: #FFFFFF;
+  max-width: 840px;
+  width: 100%;
+  border-radius: var(--radius-sm);
+  padding: 50px 60px;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  max-height: 90vh;
+  overflow-y: auto;
+  color: #231F1E;
+}
+
+.quotation-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-bottom: 24px;
+  border-bottom: 2px solid var(--c-gold);
+  margin-bottom: 30px;
+}
+
+.quotation-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 24px 0 32px;
+  font-size: 0.92rem;
+}
+
+.quotation-table th {
+  background: var(--c-warm-white);
+  padding: 12px 14px;
+  text-align: left;
+  border-bottom: 1px solid rgba(161, 139, 120, 0.3);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--c-charcoal);
+}
+
+.quotation-table td {
+  padding: 14px;
+  border-bottom: 1px solid rgba(161, 139, 120, 0.16);
+  vertical-align: middle;
+}
+
+.quotation-footer-terms {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(161, 139, 120, 0.2);
+  font-size: 0.8rem;
+  color: var(--c-text-light);
+  line-height: 1.6;
+}
+
+/* VIP Booking Component */
+.vip-booking-section {
+  background: var(--c-charcoal-deep);
+  color: var(--c-white);
+}
+
+.booking-slots-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin: 16px 0 24px;
+}
+
+.slot-btn {
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(197, 166, 110, 0.3);
+  border-radius: var(--radius-xs);
+  color: var(--c-white);
+  font-size: 0.84rem;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.slot-btn:hover,
+.slot-btn.active {
+  background: var(--c-gold);
+  color: var(--c-charcoal-deep);
+  border-color: var(--c-gold);
+  box-shadow: 0 4px 15px rgba(197, 166, 110, 0.4);
+}
+
+/* Print CSS */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  .quotation-modal-dialog,
+  .quotation-modal-dialog * {
+    visibility: visible;
+  }
+  .quotation-modal-dialog {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-width: 100%;
+    box-shadow: none;
+    padding: 20px;
+  }
+  .no-print {
+    display: none !important;
+  }
+}
+
+@media (max-width: 992px) {
+  .stager-studio-grid { grid-template-columns: 1fr; }
+  .stager-visual-viewport { height: 420px; }
+  .booking-slots-grid { grid-template-columns: repeat(2, 1fr); }
+}
+

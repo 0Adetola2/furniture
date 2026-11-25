@@ -1,0 +1,42 @@
+{
+  "name": "TOLEX FURNITURE — Luxury Showroom",
+  "short_name": "TOLEX",
+  "description": "Luxury home furniture showroom, catalogue discovery, room stager, and bespoke consultation web app.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#221E1D",
+  "theme_color": "#C5A66E",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "assets/icons/favicon.svg",
+      "sizes": "64x64 128x128 256x256 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Furniture Catalogue",
+      "short_name": "Catalogue",
+      "description": "Browse living, bedroom, and dining showroom pieces",
+      "url": "./index.html#catalogue",
+      "icons": [{ "src": "assets/icons/favicon.svg", "sizes": "64x64" }]
+    },
+    {
+      "name": "Room Stager Studio",
+      "short_name": "Room Stager",
+      "description": "Interactive visual space and palette customizer",
+      "url": "./index.html#room-stager",
+      "icons": [{ "src": "assets/icons/favicon.svg", "sizes": "64x64" }]
+    },
+    {
+      "name": "Book VIP Viewing",
+      "short_name": "Book VIP",
+      "description": "Schedule a private showroom viewing",
+      "url": "./contact.html#book-vip",
+      "icons": [{ "src": "assets/icons/favicon.svg", "sizes": "64x64" }]
+    }
+  ],
+  "categories": ["lifestyle", "shopping"]
+}

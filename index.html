@@ -7,6 +7,11 @@
   <meta name="description" content="Discover extraordinary furniture collections at TOLEX FURNITURE Showroom. Handcrafted living room, bedroom, dining, and executive office furniture designed with timeless elegance.">
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#C5A66E">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="TOLEX">
 </head>
 <body>
 
@@ -43,6 +48,12 @@
 
       <!-- Action Buttons -->
       <div class="header-actions">
+        <!-- PWA App Install Button -->
+        <button type="button" class="pwa-install-btn" aria-label="Install TOLEX Web App">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          <span>Install App</span>
+        </button>
+
         <!-- Enquiry Drawer Trigger -->
         <button type="button" class="enquiry-trigger-btn" aria-label="View Enquiry List">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
@@ -328,6 +339,94 @@
       <!-- Products Grid (Rendered by main.js) -->
       <div class="products-grid">
         <!-- JavaScript populates 12 luxury items -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       WEB APP MODULE: INTERACTIVE ROOM STAGER STUDIO
+       ======================================================================== -->
+  <section class="room-stager-section section-padding" id="room-stager">
+    <div class="container">
+      <div class="section-header reveal-on-scroll">
+        <span class="section-kicker center">Interactive Web App Studio</span>
+        <h2>Visual Room Stager & <span class="italic text-gold">Palette Customizer</span></h2>
+        <p>Curate your bespoke furniture centerpiece, test material wall treatments, and preview ambient lighting moods in real time.</p>
+      </div>
+
+      <div class="stager-studio-grid">
+        <!-- Visual Viewport Canvas -->
+        <div class="stager-visual-viewport lighting-warm reveal-on-scroll" id="stager-viewport">
+          <div class="stager-viewport-top">
+            <div class="stager-live-badge">
+              <span class="pulse-dot"></span>
+              <span>Live Stager Studio</span>
+            </div>
+            <span class="gold-badge">100% Bespoke Craft</span>
+          </div>
+
+          <div class="stager-centerpiece-display">
+            <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=800&q=80" alt="Centerpiece" class="stager-centerpiece-img" id="stager-piece-img">
+          </div>
+
+          <div class="stager-viewport-bottom">
+            <div>
+              <h4 id="stager-piece-title">Aurelia Curved Bouclé Sofa</h4>
+              <p id="stager-piece-desc">Deep organic curved seating set against dark fluted timber slats with brushed gold horizontal inlays.</p>
+            </div>
+            <div style="text-align: right; min-width: 140px;">
+              <span style="font-size:0.75rem; text-transform:uppercase; color:var(--c-gold); font-weight:700; letter-spacing:0.1em;">Dimensions</span>
+              <div id="stager-piece-dim" style="font-weight:700; font-size:0.9rem; color:#FFFFFF;">98" W x 42" D x 31" H</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stager Configuration Controls -->
+        <div class="stager-controls-panel reveal-on-scroll">
+          <div>
+            <div class="stager-group-title">
+              <span>1. Choose Statement Piece</span>
+              <span style="color:var(--c-gold); font-size:0.75rem;">5 Models</span>
+            </div>
+            <div class="stager-options-row">
+              <button type="button" class="stager-btn-pill stager-piece-btn active" data-product-id="tlx-01">Aurelia Sofa</button>
+              <button type="button" class="stager-btn-pill stager-piece-btn" data-product-id="tlx-02">Italian Sectional</button>
+              <button type="button" class="stager-btn-pill stager-piece-btn" data-product-id="tlx-03">Seraphina Bed</button>
+              <button type="button" class="stager-btn-pill stager-piece-btn" data-product-id="tlx-04">Walnut Dining</button>
+              <button type="button" class="stager-btn-pill stager-piece-btn" data-product-id="tlx-05">Teakwood Desk</button>
+            </div>
+          </div>
+
+          <div>
+            <div class="stager-group-title">
+              <span>2. Architectural Wall Finish</span>
+              <span style="color:var(--c-gold); font-size:0.75rem;">Brand Palette</span>
+            </div>
+            <div class="stager-color-swatches">
+              <button type="button" class="stager-swatch stager-wall-swatch active" data-wall="fluted" style="background:#221E1D;" title="Fluted Charcoal Wood with Gold Inlays"></button>
+              <button type="button" class="stager-swatch stager-wall-swatch" data-wall="taupe" style="background:#A18B78;" title="Venetian Warm Taupe Plaster"></button>
+              <button type="button" class="stager-swatch stager-wall-swatch" data-wall="cream" style="background:#E9D9C7;" title="Soft Cashmere Cream Plaster"></button>
+            </div>
+          </div>
+
+          <div>
+            <div class="stager-group-title">
+              <span>3. Ambient Lighting Scheme</span>
+              <span style="color:var(--c-gold); font-size:0.75rem;">Color Temp</span>
+            </div>
+            <div class="stager-options-row">
+              <button type="button" class="stager-btn-pill stager-light-btn" data-light="daylight">Daylight (5000K)</button>
+              <button type="button" class="stager-btn-pill stager-light-btn active" data-light="warm">Sunset Warm (2700K)</button>
+              <button type="button" class="stager-btn-pill stager-light-btn" data-light="evening">Atmospheric (2200K)</button>
+            </div>
+          </div>
+
+          <div class="pt-3" style="border-top: 1px solid rgba(161, 139, 120, 0.2);">
+            <button type="button" class="btn btn-primary w-100" id="stager-add-enquiry-btn">
+              + Save Staged Suite to Enquiry
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -744,6 +843,10 @@
     <div class="enquiry-drawer-footer">
       <div class="enquiry-count-summary" style="display:none;"></div>
       <div class="enquiry-actions" style="display:none;">
+        <button type="button" class="btn btn-primary btn-generate-quotation">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+          Formal Quotation (PDF)
+        </button>
         <button type="button" class="btn btn-whatsapp btn-whatsapp-enquiry">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.299.144.347.491 1.2.534 1.288.043.087.072.188.014.303-.058.116-.087.188-.173.289l-.26.303c-.087.087-.179.182-.077.357.101.174.449.741.964 1.2 1.056.941 1.396.969 1.62.81l.303-.433c.101-.144.202-.12.332-.072.13.048.824.39 1.055.505.231.116.385.173.442.271.058.098.058.566-.086.971z"/></svg>
           Send Enquiry via WhatsApp
@@ -760,6 +863,75 @@
   <div class="modal-backdrop" aria-hidden="true">
     <div class="product-modal-dialog" role="dialog" aria-modal="true">
       <!-- Populated dynamically by main.js -->
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       PRINTABLE FORMAL QUOTATION DOCUMENT MODAL
+       ======================================================================== -->
+  <div class="modal-backdrop" id="quotation-modal-backdrop" aria-hidden="true">
+    <div class="quotation-modal-dialog" role="dialog" aria-modal="true">
+      <button type="button" class="modal-close-btn no-print" aria-label="Close Quotation">✕</button>
+
+      <div class="quotation-header">
+        <div>
+          <div class="brand-logo mb-2">
+            <svg class="logo-symbol" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:38px;height:38px;">
+              <circle cx="32" cy="32" r="30" stroke="#C5A66E" stroke-width="1.5" stroke-dasharray="3 3"/>
+              <path d="M14 38C14 26 22 18 32 18C42 18 50 26 50 38" stroke="#C5A66E" stroke-width="2"/>
+              <path d="M17 38C17 35 19 33 22 33H42C45 33 47 35 47 38V42C47 43 46 44 45 44H19C18 44 17 43 17 42V38Z" stroke="#C5A66E" stroke-width="2"/>
+            </svg>
+            <div class="logo-text-wrap">
+              <span class="logo-title" style="color:#231F1E; font-size:1.4rem;">TOLEX</span>
+              <span class="logo-subtitle">Furniture Showroom</span>
+            </div>
+          </div>
+          <p style="font-size:0.82rem; color:#5D5451;">742 Evergreen Luxury Blvd, Suite 100, Design District</p>
+          <p style="font-size:0.82rem; color:#5D5451;">concierge@tolexfurniture.com | +1 (800) 555-TOLEX</p>
+        </div>
+
+        <div style="text-align:right;">
+          <span class="gold-badge mb-2">Official Estimate</span>
+          <div style="font-size:0.85rem; color:#5D5451;">Estimate Ref: <strong id="quotation-number-val" style="color:#231F1E;">TLX-000000</strong></div>
+          <div style="font-size:0.82rem; color:#5D5451;">Date: <span id="quotation-date-val"></span></div>
+          <div style="font-size:0.82rem; color:#5D5451;">Valid Until: <span id="quotation-valid-val"></span></div>
+        </div>
+      </div>
+
+      <div style="margin-bottom:20px;">
+        <h3 style="font-size:1.3rem; margin-bottom:4px;">Showroom Curation Summary</h3>
+        <p style="font-size:0.88rem; color:#5D5451;">Prepared for Private Showroom Client — Total: <strong id="quotation-total-items" style="color:#C5A66E;">0 Items</strong></p>
+      </div>
+
+      <table class="quotation-table">
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Description & Dimensions</th>
+            <th>Category</th>
+            <th>Fabrication Status</th>
+            <th style="text-align:right;">Tier</th>
+          </tr>
+        </thead>
+        <tbody id="quotation-table-body">
+          <!-- Populated dynamically -->
+        </tbody>
+      </table>
+
+      <div class="quotation-footer-terms">
+        <h5 style="color:#231F1E; margin-bottom:6px; font-size:0.9rem;">Showroom Guarantee & Ordering Terms:</h5>
+        <p>1. All wooden frameworks are protected by our signature 10-Year Structural Integrity Warranty.</p>
+        <p>2. Complimentary white-glove inside delivery, room placement, and packaging disposal are included on all curated suites.</p>
+        <p>3. To lock in fabric dye batches or custom timber milling, present this estimate reference to your assigned showroom concierge.</p>
+      </div>
+
+      <div class="no-print" style="margin-top:30px; display:flex; justify-content:space-between; align-items:center; gap:16px;">
+        <button type="button" class="btn btn-outline-dark" onclick="document.getElementById('quotation-modal-backdrop').classList.remove('active'); document.body.style.overflow='';">Close Window</button>
+        <button type="button" class="btn btn-primary" id="btn-print-quotation">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+          Print / Save as PDF
+        </button>
+      </div>
     </div>
   </div>
 

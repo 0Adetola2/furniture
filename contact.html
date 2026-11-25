@@ -7,6 +7,11 @@
   <meta name="description" content="Connect with TOLEX FURNITURE Showroom. Book a private styling consultation, send an inquiry, or visit our design gallery. Located in the Design District.">
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#C5A66E">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="TOLEX">
 </head>
 <body>
 
@@ -42,6 +47,12 @@
 
       <!-- Action Buttons -->
       <div class="header-actions">
+        <!-- PWA App Install Button -->
+        <button type="button" class="pwa-install-btn" aria-label="Install TOLEX Web App">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          <span>Install App</span>
+        </button>
+
         <button type="button" class="enquiry-trigger-btn" aria-label="View Enquiry List">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
           <span>Enquiry</span>
@@ -273,6 +284,64 @@
           <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
             Notify Arrival
           </a>
+        </div>
+      </div>
+
+      <!-- ====================================================================
+           WEB APP MODULE: VIP APPOINTMENT SCHEDULER (.ICS CALENDAR EXPORT)
+           ==================================================================== -->
+      <div class="vip-booking-section mt-5 reveal-on-scroll" id="book-vip" style="border-radius:var(--radius-md); padding:50px 45px; border:1px solid rgba(197, 166, 110, 0.35);">
+        <div style="max-width:760px; margin:0 auto; text-align:center;">
+          <span class="section-kicker center text-gold">VIP Concierge Service</span>
+          <h2 class="text-white" style="font-size:2.2rem; margin-bottom:12px;">Schedule a Private <span class="italic text-gold">Showroom Consultation</span></h2>
+          <p class="text-cream" style="margin-bottom:32px;">
+            Book an uninterrupted 90-minute session with our senior interior consultants. Review 3D floorplans, fabric swatches, and timber samples over espresso.
+          </p>
+
+          <form id="vip-booking-form" style="text-align:left;">
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="vip-name" class="form-label" style="color:var(--c-cream);">Your Full Name *</label>
+                <input type="text" id="vip-name" class="form-control" placeholder="e.g. Lady Vivienne Montgomery" required>
+              </div>
+
+              <div class="form-group">
+                <label for="vip-email" class="form-label" style="color:var(--c-cream);">Email for Calendar Invite *</label>
+                <input type="email" id="vip-email" class="form-control" placeholder="e.g. vivienne@montgomery.com" required>
+              </div>
+
+              <div class="form-group">
+                <label for="vip-service-type" class="form-label" style="color:var(--c-cream);">Appointment Type *</label>
+                <select id="vip-service-type" class="form-control">
+                  <option value="In-Showroom VIP Viewing">Private In-Showroom VIP Viewing</option>
+                  <option value="Virtual 3D Walkthrough">Virtual 3D Video Walkthrough</option>
+                  <option value="At-Home Spatial Survey">At-Home Spatial Planning Survey</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="vip-booking-date" class="form-label" style="color:var(--c-cream);">Preferred Date *</label>
+                <input type="date" id="vip-booking-date" class="form-control" required>
+              </div>
+
+              <div class="form-group full-width">
+                <label class="form-label" style="color:var(--c-cream); margin-bottom:6px;">Select Preferred Time Slot *</label>
+                <div class="booking-slots-grid">
+                  <button type="button" class="slot-btn active" data-slot="10:00 AM">10:00 AM – 11:30 AM</button>
+                  <button type="button" class="slot-btn" data-slot="12:30 PM">12:30 PM – 2:00 PM</button>
+                  <button type="button" class="slot-btn" data-slot="3:00 PM">3:00 PM – 4:30 PM</button>
+                  <button type="button" class="slot-btn" data-slot="5:30 PM">5:30 PM – 7:00 PM</button>
+                </div>
+              </div>
+
+              <div class="form-group full-width mt-2">
+                <button type="submit" class="btn btn-primary w-100" style="padding:16px;">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                  Confirm VIP Session & Download Calendar Invite (.ICS)
+                </button>
+              </div>
+            </div>
+          </form>
         </div>
       </div>
 
