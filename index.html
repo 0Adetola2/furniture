@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TOLEX FURNITURE — Luxury Home Furniture Showroom</title>
-  <meta name="description" content="Discover extraordinary furniture collections at TOLEX FURNITURE Showroom. Handcrafted living room, bedroom, dining, and executive office furniture designed with timeless elegance.">
+  <title>TOLEX FURNITURE — Luxury Home Furniture Showroom & Web App</title>
+  <meta name="description" content="Explore extraordinary furniture collections at TOLEX FURNITURE Showroom. Handcrafted living room, bedroom, dining, and executive office furniture designed with timeless elegance.">
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
   <link rel="manifest" href="manifest.json">
@@ -21,7 +21,7 @@
   <header class="site-header" id="site-header">
     <div class="container header-container">
       <!-- Custom TOLEX Logo -->
-      <a href="index.html" class="brand-logo" aria-label="TOLEX FURNITURE Home">
+      <a href="#/home" data-nav="home" class="brand-logo" aria-label="TOLEX FURNITURE Home">
         <svg class="logo-symbol" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle cx="32" cy="32" r="30" stroke="#C5A66E" stroke-width="1.5" stroke-dasharray="3 3" opacity="0.6"/>
           <path d="M14 38C14 26 22 18 32 18C42 18 50 26 50 38" stroke="#C5A66E" stroke-width="2" stroke-linecap="round"/>
@@ -36,13 +36,13 @@
         </div>
       </a>
 
-      <!-- Desktop Nav -->
+      <!-- Desktop Nav with SPA Data-Nav Attributes -->
       <nav class="desktop-nav" aria-label="Primary Navigation">
         <ul class="nav-menu">
-          <li><a href="index.html" class="nav-link active">Home</a></li>
-          <li><a href="about.html" class="nav-link">About Us</a></li>
-          <li><a href="services.html" class="nav-link">Our Services</a></li>
-          <li><a href="contact.html" class="nav-link">Contact Us</a></li>
+          <li><a href="#/home" data-nav="home" class="nav-link active">Home</a></li>
+          <li><a href="#/about" data-nav="about" class="nav-link">About Us</a></li>
+          <li><a href="#/services" data-nav="services" class="nav-link">Our Services</a></li>
+          <li><a href="#/contact" data-nav="contact" class="nav-link">Contact Us</a></li>
         </ul>
       </nav>
 
@@ -88,644 +88,1314 @@
         </div>
       </div>
       <nav class="mobile-nav-links">
-        <a href="index.html" class="mobile-nav-link active">Home <span>→</span></a>
-        <a href="about.html" class="mobile-nav-link">About Us <span>→</span></a>
-        <a href="services.html" class="mobile-nav-link">Our Services <span>→</span></a>
-        <a href="contact.html" class="mobile-nav-link">Contact Us <span>→</span></a>
+        <a href="#/home" data-nav="home" class="mobile-nav-link active">Home <span>→</span></a>
+        <a href="#/about" data-nav="about" class="mobile-nav-link">About Us <span>→</span></a>
+        <a href="#/services" data-nav="services" class="mobile-nav-link">Our Services <span>→</span></a>
+        <a href="#/contact" data-nav="contact" class="mobile-nav-link">Contact Us <span>→</span></a>
       </nav>
     </div>
     <div class="mobile-nav-footer">
       <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp w-100">
         Chat on WhatsApp
       </a>
-      <p class="text-taupe text-center" style="font-size:0.8rem;">Open Mon – Sat: 9:30 AM – 7:30 PM</p>
+      <p class="text-taupe text-center" style="font-size:0.8rem; margin-top:12px;">Open Mon – Sat: 9:30 AM – 7:30 PM</p>
     </div>
   </aside>
 
   <!-- ========================================================================
-       SLIDER REVOLUTION-STYLE HERO SECTION
+       APPLICATION VIEWS ROOT (SPA CONTAINER)
        ======================================================================== -->
-  <section class="hero-slider-section" aria-label="Hero Slider">
-    <div class="hero-slider-wrap">
+  <main id="app-root">
 
-      <!-- Slide 1: Living Room Elegance -->
-      <div class="hero-slide active" data-index="0">
-        <div class="hero-slide-bg" style="background-image: url('assets/images/hero_living.jpg');"></div>
-        <div class="hero-slide-overlay"></div>
-        
-        <div class="hero-slide-decoration">
-          <div class="deco-line"></div>
-          <div class="dot-matrix gold deco-dots">
-            <span></span><span></span><span></span><span></span><span></span><span></span>
-            <span></span><span></span><span></span><span></span><span></span><span></span>
-            <span></span><span></span><span></span><span></span><span></span><span></span>
+    <!-- ======================================================================
+         VIEW 1: HOME SHOWROOM
+         ====================================================================== -->
+    <div class="spa-view active" id="view-home">
+
+      <!-- HERO SLIDER SECTION -->
+      <section class="hero-slider-section" aria-label="Hero Slider">
+        <div class="hero-slider-wrap">
+
+          <!-- Slide 1: Living Room Elegance -->
+          <div class="hero-slide active" data-index="0">
+            <div class="hero-slide-bg" style="background-image: url('assets/images/hero_living.jpg');"></div>
+            <div class="hero-slide-overlay"></div>
+            
+            <div class="hero-slide-decoration">
+              <div class="deco-line"></div>
+              <div class="dot-matrix gold deco-dots">
+                <span></span><span></span><span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span><span></span><span></span>
+              </div>
+            </div>
+
+            <div class="container">
+              <div class="hero-content">
+                <span class="hero-tag">Exquisite Living Room Collections</span>
+                <h1 class="hero-title">
+                  <span class="title-line"><span>Transform Your Space</span></span>
+                  <span class="title-line"><span class="italic text-gold">Into Something Extraordinary.</span></span>
+                </h1>
+                <p class="hero-desc">
+                  Discover beautiful furniture that brings comfort, elegance, and personality into your home. Hand-finished timbers and tactile upholstery crafted for modern sanctuaries.
+                </p>
+                <div class="hero-btn-group">
+                  <a href="#catalogue" class="btn btn-primary">Explore Our Collection</a>
+                  <a href="#/contact" data-nav="contact" class="btn btn-secondary">Visit Showroom</a>
+                </div>
+              </div>
+            </div>
           </div>
+
+          <!-- Slide 2: Bedroom Comfort -->
+          <div class="hero-slide" data-index="1">
+            <div class="hero-slide-bg" style="background-image: url('assets/images/hero_bedroom.jpg');"></div>
+            <div class="hero-slide-overlay"></div>
+            
+            <div class="hero-slide-decoration">
+              <div class="deco-line"></div>
+              <div class="dot-matrix gold deco-dots">
+                <span></span><span></span><span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span><span></span><span></span>
+              </div>
+            </div>
+
+            <div class="container">
+              <div class="hero-content">
+                <span class="hero-tag">Master Bedroom Sanctuaries</span>
+                <h1 class="hero-title">
+                  <span class="title-line"><span>Where Comfort Meets</span></span>
+                  <span class="title-line"><span class="italic text-gold">Timeless Design.</span></span>
+                </h1>
+                <p class="hero-desc">
+                  Experience beautifully crafted furniture designed to make every moment at home special. Ergonomic platform beds, velvet headboards, and tailored nightstands.
+                </p>
+                <div class="hero-btn-group">
+                  <a href="#catalogue" class="btn btn-primary">Discover More</a>
+                  <a href="#/services" data-nav="services" class="btn btn-secondary">Custom Fitouts</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 3: Dining & Lifestyle -->
+          <div class="hero-slide" data-index="2">
+            <div class="hero-slide-bg" style="background-image: url('assets/images/hero_dining.jpg');"></div>
+            <div class="hero-slide-overlay"></div>
+            
+            <div class="hero-slide-decoration">
+              <div class="deco-line"></div>
+              <div class="dot-matrix gold deco-dots">
+                <span></span><span></span><span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span><span></span><span></span>
+              </div>
+            </div>
+
+            <div class="container">
+              <div class="hero-content">
+                <span class="hero-tag">Artisanal Dining & Gathering</span>
+                <h1 class="hero-title">
+                  <span class="title-line"><span>Create Spaces Worth</span></span>
+                  <span class="title-line"><span class="italic text-gold">Coming Home To.</span></span>
+                </h1>
+                <p class="hero-desc">
+                  Find exceptional furniture that brings people together and makes every space memorable. Solid hardwood dining suites, marble low tables, and sculptural chairs.
+                </p>
+                <div class="hero-btn-group">
+                  <a href="#catalogue" class="btn btn-primary">View Our Furniture</a>
+                  <a href="#/contact" data-nav="contact" class="btn btn-secondary">Book Consultation</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
 
+        <!-- Slider Navigation Controls -->
+        <div class="slider-arrows-wrap">
+          <button type="button" class="slider-nav-btn prev" aria-label="Previous Slide">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+          </button>
+          <button type="button" class="slider-nav-btn next" aria-label="Next Slide">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </button>
+        </div>
+
+        <!-- Slider Progress Indicators -->
+        <div class="slider-pagination-wrap">
+          <button type="button" class="slider-dot active" data-slide="0" aria-label="Slide 1"></button>
+          <button type="button" class="slider-dot" data-slide="1" aria-label="Slide 2"></button>
+          <button type="button" class="slider-dot" data-slide="2" aria-label="Slide 3"></button>
+        </div>
+      </section>
+
+      <!-- BRAND FEATURES STRIP -->
+      <section class="features-strip">
         <div class="container">
-          <div class="hero-content">
-            <span class="hero-tag">Exquisite Living Room Collections</span>
-            <h1 class="hero-title">
-              <span class="title-line"><span>Transform Your Space</span></span>
-              <span class="title-line"><span class="italic text-gold">Into Something Extraordinary.</span></span>
-            </h1>
-            <p class="hero-desc">
-              Discover beautiful furniture that brings comfort, elegance, and personality into your home. Hand-finished timbers and tactile upholstery crafted for modern sanctuaries.
-            </p>
-            <div class="hero-btn-group">
-              <a href="#catalogue" class="btn btn-primary">Explore Our Collection</a>
-              <a href="contact.html" class="btn btn-secondary">Visit Showroom</a>
+          <div class="features-strip-grid">
+            <div class="strip-item">
+              <div class="strip-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+              </div>
+              <div>
+                <h5>10-Year Warranty</h5>
+                <p>On all solid timber frames & joinery</p>
+              </div>
+            </div>
+            <div class="strip-item">
+              <div class="strip-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+              </div>
+              <div>
+                <h5>White-Glove Delivery</h5>
+                <p>Inside delivery & room placement</p>
+              </div>
+            </div>
+            <div class="strip-item">
+              <div class="strip-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+              </div>
+              <div>
+                <h5>Bespoke Customization</h5>
+                <p>50+ Italian leathers & French fabrics</p>
+              </div>
+            </div>
+            <div class="strip-item">
+              <div class="strip-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              </div>
+              <div>
+                <h5>Design District Gallery</h5>
+                <p>Open 6 days for sensory viewing</p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      <!-- Slide 2: Bedroom Comfort -->
-      <div class="hero-slide" data-index="1">
-        <div class="hero-slide-bg" style="background-image: url('assets/images/hero_bedroom.jpg');"></div>
-        <div class="hero-slide-overlay"></div>
-        
-        <div class="hero-slide-decoration">
-          <div class="deco-line"></div>
-          <div class="dot-matrix gold deco-dots">
-            <span></span><span></span><span></span><span></span><span></span><span></span>
-            <span></span><span></span><span></span><span></span><span></span><span></span>
-            <span></span><span></span><span></span><span></span><span></span><span></span>
-          </div>
-        </div>
-
+      <!-- PRODUCT CATALOGUE & FILTERING SECTION -->
+      <section class="catalogue-section section-padding" id="catalogue">
         <div class="container">
-          <div class="hero-content">
-            <span class="hero-tag">Master Bedroom Sanctuaries</span>
-            <h1 class="hero-title">
-              <span class="title-line"><span>Where Comfort Meets</span></span>
-              <span class="title-line"><span class="italic text-gold">Timeless Design.</span></span>
-            </h1>
-            <p class="hero-desc">
-              Experience beautifully crafted furniture designed to make every moment at home special. Ergonomic platform beds, velvet headboards, and tailored nightstands.
-            </p>
-            <div class="hero-btn-group">
-              <a href="#catalogue" class="btn btn-primary">Discover More</a>
-              <a href="services.html" class="btn btn-secondary">Custom Fitouts</a>
+          <div class="section-header reveal-on-scroll">
+            <span class="section-kicker center">The Permanent Showroom Collection</span>
+            <h2>Curated Furniture <span class="italic text-gold">Masterpieces</span></h2>
+            <p>Every piece is thoughtfully designed, responsibly sourced, and hand-finished by master craftspeople.</p>
+          </div>
+
+          <!-- Catalog Toolbar -->
+          <div class="catalogue-toolbar reveal-on-scroll">
+            <div class="category-filters">
+              <button type="button" class="filter-pill active" data-filter="all">All Pieces</button>
+              <button type="button" class="filter-pill" data-filter="living">Living Room</button>
+              <button type="button" class="filter-pill" data-filter="bedroom">Bedroom</button>
+              <button type="button" class="filter-pill" data-filter="dining">Dining Room</button>
+              <button type="button" class="filter-pill" data-filter="office">Executive Office</button>
+              <button type="button" class="filter-pill" data-filter="decor">Consoles & Accents</button>
+            </div>
+
+            <div class="search-wrap">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="search-icon"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              <input type="text" class="search-input" placeholder="Search by name, wood, or style..." aria-label="Search Catalogue">
             </div>
           </div>
-        </div>
-      </div>
 
-      <!-- Slide 3: Dining & Lifestyle -->
-      <div class="hero-slide" data-index="2">
-        <div class="hero-slide-bg" style="background-image: url('assets/images/hero_dining.jpg');"></div>
-        <div class="hero-slide-overlay"></div>
-        
-        <div class="hero-slide-decoration">
-          <div class="deco-line"></div>
-          <div class="dot-matrix gold deco-dots">
-            <span></span><span></span><span></span><span></span><span></span><span></span>
-            <span></span><span></span><span></span><span></span><span></span><span></span>
-            <span></span><span></span><span></span><span></span><span></span><span></span>
+          <!-- Products Grid -->
+          <div class="products-grid">
+            <!-- Populated dynamically by main.js with 12 items -->
           </div>
         </div>
+      </section>
 
+      <!-- INTERACTIVE 3D ROOM STAGER & ATMOSPHERE CONFIGURATOR -->
+      <section class="room-stager-section section-padding" id="stager">
         <div class="container">
-          <div class="hero-content">
-            <span class="hero-tag">Artisanal Dining & Gathering</span>
-            <h1 class="hero-title">
-              <span class="title-line"><span>Create Spaces Worth</span></span>
-              <span class="title-line"><span class="italic text-gold">Coming Home To.</span></span>
-            </h1>
-            <p class="hero-desc">
-              Find exceptional furniture that brings people together and makes every space memorable. Solid hardwood dining suites, marble low tables, and sculptural chairs.
-            </p>
-            <div class="hero-btn-group">
-              <a href="#catalogue" class="btn btn-primary">View Our Furniture</a>
-              <a href="about.html" class="btn btn-secondary">Our Craftsmanship</a>
+          <div class="section-header reveal-on-scroll">
+            <span class="section-kicker center text-gold">Atmosphere Studio</span>
+            <h2 class="text-white">Interactive Room <span class="italic text-gold">Stager</span></h2>
+            <p class="text-cream">Preview how our signature pieces harmonize under different architectural wall finishes and lighting temperatures.</p>
+          </div>
+
+          <div class="stager-container reveal-on-scroll">
+            <!-- Visual Canvas -->
+            <div class="stager-visual-viewport lighting-warm" id="stager-viewport">
+              <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=800&q=80" alt="Active Staged Furniture" class="stager-furniture-img" id="stager-active-img">
+              
+              <div class="stager-ambient-card">
+                <span class="gold-badge" style="padding:4px 8px; font-size:0.65rem;">Live Configuration</span>
+                <h4 id="stager-piece-title" style="margin-top:6px; font-size:1.1rem; color:var(--c-white);">Aurelia Curved Bouclé Sofa</h4>
+                <p id="stager-piece-desc" style="font-size:0.8rem; color:var(--c-taupe-light); line-height:1.4;">Architectural organic curved geometry configured on Fluted Charcoal Wood.</p>
+                <div style="font-size:0.75rem; color:var(--c-gold); margin-top:4px;" id="stager-piece-dims">98" W x 42" D x 31" H</div>
+              </div>
+            </div>
+
+            <!-- Controls Panel -->
+            <div class="stager-controls-panel">
+              <div>
+                <div class="stager-group-title">
+                  <span>1. Select Focal Centerpiece</span>
+                  <span style="color:var(--c-gold); font-size:0.75rem;">Showroom Suite</span>
+                </div>
+                <div class="stager-options-row">
+                  <button type="button" class="stager-btn-pill stager-piece-btn active" data-product-id="tlx-01">Aurelia Curved Sofa</button>
+                  <button type="button" class="stager-btn-pill stager-piece-btn" data-product-id="tlx-03">Seraphina Platform Bed</button>
+                  <button type="button" class="stager-btn-pill stager-piece-btn" data-product-id="tlx-04">Tuscan Walnut Dining</button>
+                  <button type="button" class="stager-btn-pill stager-piece-btn" data-product-id="tlx-05">President Teak Desk</button>
+                </div>
+              </div>
+
+              <div>
+                <div class="stager-group-title">
+                  <span>2. Architectural Wall Finish</span>
+                  <span style="color:var(--c-gold); font-size:0.75rem;">Brand Palette</span>
+                </div>
+                <div class="stager-color-swatches">
+                  <button type="button" class="stager-swatch stager-wall-swatch active" data-wall="fluted" style="background:#221E1D;" title="Fluted Charcoal Wood with Gold Inlays"></button>
+                  <button type="button" class="stager-swatch stager-wall-swatch" data-wall="taupe" style="background:#A18B78;" title="Venetian Warm Taupe Plaster"></button>
+                  <button type="button" class="stager-swatch stager-wall-swatch" data-wall="cream" style="background:#E9D9C7;" title="Soft Cashmere Cream Plaster"></button>
+                </div>
+              </div>
+
+              <div>
+                <div class="stager-group-title">
+                  <span>3. Ambient Lighting Scheme</span>
+                  <span style="color:var(--c-gold); font-size:0.75rem;">Color Temp</span>
+                </div>
+                <div class="stager-options-row">
+                  <button type="button" class="stager-btn-pill stager-light-btn" data-light="daylight">Daylight (5000K)</button>
+                  <button type="button" class="stager-btn-pill stager-light-btn active" data-light="warm">Sunset Warm (2700K)</button>
+                  <button type="button" class="stager-btn-pill stager-light-btn" data-light="evening">Atmospheric (2200K)</button>
+                </div>
+              </div>
+
+              <div class="pt-3" style="border-top: 1px solid rgba(161, 139, 120, 0.2);">
+                <button type="button" class="btn btn-primary w-100" id="stager-add-enquiry-btn">
+                  + Save Staged Suite to Enquiry
+                </button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
-    </div>
-
-    <!-- Slider Navigation Arrows -->
-    <button type="button" class="slider-arrow-btn slider-arrow-prev" aria-label="Previous Slide">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
-    </button>
-    <button type="button" class="slider-arrow-btn slider-arrow-next" aria-label="Next Slide">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
-    </button>
-
-    <!-- Slider Bottom Controls Bar -->
-    <div class="slider-bottom-bar">
-      <!-- Indicators -->
-      <div class="slider-indicators">
-        <div class="indicator-item active" data-index="0">
-          <span>01</span>
-          <div class="indicator-bar"><div class="indicator-fill"></div></div>
-          <span>Living Room</span>
-        </div>
-        <div class="indicator-item" data-index="1">
-          <span>02</span>
-          <div class="indicator-bar"><div class="indicator-fill"></div></div>
-          <span>Bedroom</span>
-        </div>
-        <div class="indicator-item" data-index="2">
-          <span>03</span>
-          <div class="indicator-bar"><div class="indicator-fill"></div></div>
-          <span>Dining & Lifestyle</span>
-        </div>
-      </div>
-
-      <!-- Feature Strip -->
-      <div class="slider-feature-strip">
-        <span><svg width="14" height="14" viewBox="0 0 24 24" fill="var(--c-gold)"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg> Bespoke European Design</span>
-        <span><svg width="14" height="14" viewBox="0 0 24 24" fill="var(--c-gold)"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg> 100% Solid Hardwoods</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========================================================================
-       WELCOME SECTION
-       ======================================================================== -->
-  <section class="welcome-section section-padding" id="about-intro">
-    <div class="container">
-      <div class="welcome-grid">
-        <!-- Visual Composition -->
-        <div class="welcome-visual-stack reveal-on-scroll">
-          <div class="dot-matrix welcome-dot-accent">
-            <span></span><span></span><span></span><span></span><span></span><span></span>
-            <span></span><span></span><span></span><span></span><span></span><span></span>
-            <span></span><span></span><span></span><span></span><span></span><span></span>
+      <!-- INTERACTIVE ROOM BUDGET & INVESTMENT ESTIMATOR -->
+      <section class="section-padding" style="background-color: var(--c-cream-soft);" id="estimator">
+        <div class="container">
+          <div class="section-header reveal-on-scroll">
+            <span class="section-kicker center text-gold">Turnkey Interior Budgeting</span>
+            <h2>Room Fitout <span class="italic text-gold">Investment Estimator</span></h2>
+            <p>Calculate your estimated turnkey interior investment by selecting your bespoke tier and number of rooms.</p>
           </div>
 
-          <div class="welcome-main-img-wrap">
-            <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1000&q=80" alt="TOLEX Showroom Interior" class="welcome-main-img" loading="lazy">
-          </div>
-
-          <!-- Floating Badge / Card -->
-          <div class="welcome-floating-card">
-            <div class="floating-card-stat">300+</div>
-            <div class="floating-card-label">Curated Showroom Display Models Available</div>
-          </div>
-        </div>
-
-        <!-- Content -->
-        <div class="welcome-content-wrap reveal-on-scroll">
-          <span class="section-kicker">Welcome to TOLEX FURNITURE</span>
-          <h2>Sophisticated Living, <span class="italic text-gold">Tailored to Perfection.</span></h2>
-          <p class="welcome-lead">
-            At TOLEX FURNITURE, we believe your home should be an authentic reflection of timeless luxury, quiet comfort, and uncompromising craftsmanship.
-          </p>
-          <p>
-            From hand-tailored Italian leather sectionals and French bouclé lounge suites to solid American walnut dining centerpieces and custom bedroom wardrobes, every piece in our showroom is selected to elevate your everyday living. We unite artisanal woodworking traditions with contemporary architectural ergonomics.
-          </p>
-
-          <!-- Showroom Statistics -->
-          <div class="welcome-stats-row">
-            <div class="stat-item">
-              <h4>100%</h4>
-              <p>Authentic Materials</p>
-            </div>
-            <div class="stat-item">
-              <h4>15+</h4>
-              <p>Showroom Curators</p>
-            </div>
-            <div class="stat-item">
-              <h4>10-Yr</h4>
-              <p>Structural Warranty</p>
-            </div>
-          </div>
-
-          <div class="welcome-btn-row">
-            <a href="about.html" class="btn btn-dark">Our Story & Heritage</a>
-            <a href="contact.html" class="btn-link ml-4">Book Private Viewing <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========================================================================
-       FEATURED FURNITURE COLLECTIONS (CATALOGUE & SEARCH)
-       ======================================================================== -->
-  <section class="catalogue-section section-padding" id="catalogue">
-    <div class="container">
-      <div class="section-header reveal-on-scroll">
-        <span class="section-kicker center">Showroom Collections</span>
-        <h2>Curated Masterpieces for <span class="italic text-gold">Every Room</span></h2>
-        <p>Explore our exclusive collection of living room, bedroom, dining, office, and decorative furniture. Collect pieces into your personal Enquiry List for direct showroom consultation.</p>
-      </div>
-
-      <!-- Controls: Search & Category Filters -->
-      <div class="catalogue-controls-wrap reveal-on-scroll">
-        <!-- Live Search -->
-        <div class="product-search-box">
-          <input type="text" class="search-input" placeholder="Search by furniture name, material, or room..." aria-label="Search furniture collection">
-          <span class="search-icon-btn">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-          </span>
-        </div>
-
-        <!-- Filter Tabs -->
-        <div class="category-filter-tabs">
-          <button type="button" class="filter-pill active" data-filter="all">All Furniture</button>
-          <button type="button" class="filter-pill" data-filter="living">Living Room</button>
-          <button type="button" class="filter-pill" data-filter="bedroom">Bedroom</button>
-          <button type="button" class="filter-pill" data-filter="dining">Dining Room</button>
-          <button type="button" class="filter-pill" data-filter="office">Office Furniture</button>
-          <button type="button" class="filter-pill" data-filter="decor">Consoles & Decor</button>
-        </div>
-      </div>
-
-      <!-- Products Grid (Rendered by main.js) -->
-      <div class="products-grid">
-        <!-- JavaScript populates 12 luxury items -->
-      </div>
-    </div>
-  </section>
-
-  <!-- ========================================================================
-       WEB APP MODULE: INTERACTIVE ROOM STAGER STUDIO
-       ======================================================================== -->
-  <section class="room-stager-section section-padding" id="room-stager">
-    <div class="container">
-      <div class="section-header reveal-on-scroll">
-        <span class="section-kicker center">Interactive Web App Studio</span>
-        <h2>Visual Room Stager & <span class="italic text-gold">Palette Customizer</span></h2>
-        <p>Curate your bespoke furniture centerpiece, test material wall treatments, and preview ambient lighting moods in real time.</p>
-      </div>
-
-      <div class="stager-studio-grid">
-        <!-- Visual Viewport Canvas -->
-        <div class="stager-visual-viewport lighting-warm reveal-on-scroll" id="stager-viewport">
-          <div class="stager-viewport-top">
-            <div class="stager-live-badge">
-              <span class="pulse-dot"></span>
-              <span>Live Stager Studio</span>
-            </div>
-            <span class="gold-badge">100% Bespoke Craft</span>
-          </div>
-
-          <div class="stager-centerpiece-display">
-            <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=800&q=80" alt="Centerpiece" class="stager-centerpiece-img" id="stager-piece-img">
-          </div>
-
-          <div class="stager-viewport-bottom">
+          <div class="budget-estimator-card reveal-on-scroll" style="max-width: 860px; margin: 0 auto;">
             <div>
-              <h4 id="stager-piece-title">Aurelia Curved Bouclé Sofa</h4>
-              <p id="stager-piece-desc">Deep organic curved seating set against dark fluted timber slats with brushed gold horizontal inlays.</p>
+              <label style="font-weight: 700; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--c-charcoal-deep);">1. Select Curation Tier</label>
+              <div class="budget-tier-grid">
+                <button type="button" class="budget-tier-btn" data-tier="signature">
+                  <div class="tier-name">Signature Luxury</div>
+                  <div class="tier-desc">$4,500 / Room · 4-6 Wks</div>
+                </button>
+                <button type="button" class="budget-tier-btn active" data-tier="atelier">
+                  <div class="tier-name">Atelier Bespoke</div>
+                  <div class="tier-desc">$8,500 / Room · 6-8 Wks</div>
+                </button>
+                <button type="button" class="budget-tier-btn" data-tier="masterpiece">
+                  <div class="tier-name">Masterpiece</div>
+                  <div class="tier-desc">$14,500 / Room · 8-12 Wks</div>
+                </button>
+              </div>
             </div>
-            <div style="text-align: right; min-width: 140px;">
-              <span style="font-size:0.75rem; text-transform:uppercase; color:var(--c-gold); font-weight:700; letter-spacing:0.1em;">Dimensions</span>
-              <div id="stager-piece-dim" style="font-weight:700; font-size:0.9rem; color:#FFFFFF;">98" W x 42" D x 31" H</div>
+
+            <div class="budget-slider-wrap">
+              <div class="budget-slider-header">
+                <label for="budget-room-count" style="font-weight: 700; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--c-charcoal-deep);">2. Number of Rooms to Furnish</label>
+                <span id="budget-room-count-display" style="font-weight: 700; font-size: 1.1rem; color: var(--c-gold);">3 Rooms</span>
+              </div>
+              <input type="range" id="budget-room-count" class="budget-range-input" min="1" max="10" value="3" step="1">
+              <div style="display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--c-text-muted); margin-top: 6px;">
+                <span>1 Room (Apartment Suite)</span>
+                <span>5 Rooms (Villa)</span>
+                <span>10 Rooms (Grand Estate)</span>
+              </div>
+            </div>
+
+            <div class="budget-summary-box">
+              <div>
+                <div style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--c-taupe-light); margin-bottom: 4px;">Estimated Turnkey Investment</div>
+                <div class="budget-total-val" id="budget-total-val">$25,500</div>
+                <div id="budget-room-breakdown" style="font-size: 0.85rem; color: var(--c-cream); margin-top: 6px;">Includes full layout curation, bespoke millwork, curated lighting & installation (6-8 Weeks).</div>
+              </div>
+              <button type="button" class="btn btn-primary" id="budget-add-enquiry-btn">
+                + Add Fitout to Enquiry List
+              </button>
             </div>
           </div>
         </div>
+      </section>
 
-        <!-- Stager Configuration Controls -->
-        <div class="stager-controls-panel reveal-on-scroll">
-          <div>
-            <div class="stager-group-title">
-              <span>1. Choose Statement Piece</span>
-              <span style="color:var(--c-gold); font-size:0.75rem;">5 Models</span>
-            </div>
-            <div class="stager-options-row">
-              <button type="button" class="stager-btn-pill stager-piece-btn active" data-product-id="tlx-01">Aurelia Sofa</button>
-              <button type="button" class="stager-btn-pill stager-piece-btn" data-product-id="tlx-02">Italian Sectional</button>
-              <button type="button" class="stager-btn-pill stager-piece-btn" data-product-id="tlx-03">Seraphina Bed</button>
-              <button type="button" class="stager-btn-pill stager-piece-btn" data-product-id="tlx-04">Walnut Dining</button>
-              <button type="button" class="stager-btn-pill stager-piece-btn" data-product-id="tlx-05">Teakwood Desk</button>
-            </div>
+      <!-- WHY CHOOSE US (6 PILLARS) -->
+      <section class="why-choose-section section-padding">
+        <div class="container">
+          <div class="section-header reveal-on-scroll">
+            <span class="section-kicker center">The TOLEX Distinction</span>
+            <h2>Why Discerning Homeowners <span class="italic text-gold">Choose Us</span></h2>
+            <p>We blend timeless architectural design with unyielding structural integrity and personalized concierge service.</p>
           </div>
 
-          <div>
-            <div class="stager-group-title">
-              <span>2. Architectural Wall Finish</span>
-              <span style="color:var(--c-gold); font-size:0.75rem;">Brand Palette</span>
+          <div class="why-grid">
+            <div class="why-card reveal-on-scroll">
+              <div class="why-icon-box">
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              </div>
+              <h3>Quality Furniture Selection</h3>
+              <p>Every sofa, dining set, and wardrobe undergoes stringent durability audits, using sustainably harvested hardwoods and certified stain-resistant Italian leathers.</p>
             </div>
-            <div class="stager-color-swatches">
-              <button type="button" class="stager-swatch stager-wall-swatch active" data-wall="fluted" style="background:#221E1D;" title="Fluted Charcoal Wood with Gold Inlays"></button>
-              <button type="button" class="stager-swatch stager-wall-swatch" data-wall="taupe" style="background:#A18B78;" title="Venetian Warm Taupe Plaster"></button>
-              <button type="button" class="stager-swatch stager-wall-swatch" data-wall="cream" style="background:#E9D9C7;" title="Soft Cashmere Cream Plaster"></button>
-            </div>
-          </div>
 
-          <div>
-            <div class="stager-group-title">
-              <span>3. Ambient Lighting Scheme</span>
-              <span style="color:var(--c-gold); font-size:0.75rem;">Color Temp</span>
+            <div class="why-card reveal-on-scroll">
+              <div class="why-icon-box">
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+              </div>
+              <h3>Elegant & Modern Designs</h3>
+              <p>Our designs bridge contemporary minimalism with classical warmth, making each item an enduring focal point that complements diverse interior architectures.</p>
             </div>
-            <div class="stager-options-row">
-              <button type="button" class="stager-btn-pill stager-light-btn" data-light="daylight">Daylight (5000K)</button>
-              <button type="button" class="stager-btn-pill stager-light-btn active" data-light="warm">Sunset Warm (2700K)</button>
-              <button type="button" class="stager-btn-pill stager-light-btn" data-light="evening">Atmospheric (2200K)</button>
-            </div>
-          </div>
 
-          <div class="pt-3" style="border-top: 1px solid rgba(161, 139, 120, 0.2);">
-            <button type="button" class="btn btn-primary w-100" id="stager-add-enquiry-btn">
-              + Save Staged Suite to Enquiry
-            </button>
+            <div class="why-card reveal-on-scroll">
+              <div class="why-icon-box">
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+              </div>
+              <h3>Comfort & Durability</h3>
+              <p>Multi-density memory foam layering, pocketed micro-springs, and ergonomic frame geometries ensure our seating and mattresses feel as sublime as they look.</p>
+            </div>
+
+            <div class="why-card reveal-on-scroll">
+              <div class="why-icon-box">
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+              </div>
+              <h3>Affordable Luxury</h3>
+              <p>By curating directly from artisan workshops and avoiding conventional retail markups, we deliver museum-caliber finishes at transparent, fair showroom pricing.</p>
+            </div>
+
+            <div class="why-card reveal-on-scroll">
+              <div class="why-icon-box">
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+              </div>
+              <h3>Customer Satisfaction</h3>
+              <p>Over a thousand luxury homes furnished with glowing recommendations. We treat each customer residence with individual attentiveness and white-glove respect.</p>
+            </div>
+
+            <div class="why-card reveal-on-scroll">
+              <div class="why-icon-box">
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              </div>
+              <h3>Professional Customer Support</h3>
+              <p>Dedicated design consultants assist with spatial planning, swatches, custom sizing, delivery scheduling, and complimentary in-home styling consultations.</p>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
+      </section>
+
+      <!-- SERVICES HIGHLIGHTS -->
+      <section class="services-section section-padding">
+        <div class="container">
+          <div class="section-header reveal-on-scroll">
+            <span class="section-kicker center">Showroom & Bespoke Services</span>
+            <h2>End-to-End Solutions for <span class="italic text-gold">Refined Interiors</span></h2>
+            <p>Beyond our curated furniture collections, our team provides tailored space planning, furniture consultation, and white-glove staging.</p>
+          </div>
+
+          <div class="services-grid">
+            <div class="service-card reveal-on-scroll">
+              <div class="service-img-wrap">
+                <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=800&q=80" alt="Living Room Furniture" class="service-img" loading="lazy">
+              </div>
+              <div class="service-content">
+                <span class="service-number">01</span>
+                <h3>Living Room Furniture</h3>
+                <p>Sculptural modular sofas, genuine Italian leather sectionals, accent armchairs, marble coffee tables, and architectural entertainment consoles.</p>
+                <div class="service-actions">
+                  <a href="#/services" data-nav="services" class="btn-link">Explore Service <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+                  <a href="#/contact" data-nav="contact" class="btn btn-sm btn-outline-dark">Make Enquiry</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="service-card reveal-on-scroll">
+              <div class="service-img-wrap">
+                <img src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=800&q=80" alt="Bedroom Furniture" class="service-img" loading="lazy">
+              </div>
+              <div class="service-content">
+                <span class="service-number">02</span>
+                <h3>Bedroom Furniture</h3>
+                <p>Upholstered king and queen platform beds, orthopedic natural latex mattresses, custom fluted nightstands, and modular fitted wardrobe suites.</p>
+                <div class="service-actions">
+                  <a href="#/services" data-nav="services" class="btn-link">Explore Service <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+                  <a href="#/contact" data-nav="contact" class="btn btn-sm btn-outline-dark">Make Enquiry</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="service-card reveal-on-scroll">
+              <div class="service-img-wrap">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="Interior Consultation" class="service-img" loading="lazy">
+              </div>
+              <div class="service-content">
+                <span class="service-number">03</span>
+                <h3>Interior Styling & Consultation</h3>
+                <p>Collaborative 1-on-1 sessions with our senior stylists to choose color harmonies, fabric swatches, wood finishes, and scale-accurate 3D floorplans.</p>
+                <div class="service-actions">
+                  <a href="#/services" data-nav="services" class="btn-link">Explore Service <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+                  <a href="#/contact" data-nav="contact" class="btn btn-sm btn-outline-dark">Make Enquiry</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="text-center mt-5" style="text-align: center; margin-top: 45px;">
+            <a href="#/services" data-nav="services" class="btn btn-dark">View All 8 Showroom Services</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- GALLERY SECTION -->
+      <section class="gallery-section section-padding">
+        <div class="container">
+          <div class="section-header reveal-on-scroll">
+            <span class="section-kicker center">Showroom Inspiration</span>
+            <h2>Curated Interior <span class="italic text-gold">Showcase</span></h2>
+            <p>A glimpse into the living spaces, private estates, and luxury penthouses styled with TOLEX signature furniture collections.</p>
+          </div>
+
+          <div class="gallery-grid">
+            <div class="gallery-item span-2 reveal-on-scroll">
+              <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=80" alt="Warm Minimalist Living Room" class="gallery-img" loading="lazy">
+              <div class="gallery-overlay">
+                <h4>Palazzo Living Room</h4>
+                <span>Milan Minimalist Aesthetics</span>
+              </div>
+            </div>
+
+            <div class="gallery-item reveal-on-scroll">
+              <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=800&q=80" alt="Sculptural Armchair" class="gallery-img" loading="lazy">
+              <div class="gallery-overlay">
+                <h4>The Bouclé Lounge</h4>
+                <span>Armchair & Lighting Accent</span>
+              </div>
+            </div>
+
+            <div class="gallery-item reveal-on-scroll">
+              <img src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=800&q=80" alt="Master Bedroom" class="gallery-img" loading="lazy">
+              <div class="gallery-overlay">
+                <h4>Fluted Velvet Bed Suite</h4>
+                <span>Warm Ambient Lighting</span>
+              </div>
+            </div>
+
+            <div class="gallery-item reveal-on-scroll">
+              <img src="https://images.unsplash.com/photo-1617806118233-18e1de247200?auto=format&fit=crop&w=800&q=80" alt="Artisanal Dining Room" class="gallery-img" loading="lazy">
+              <div class="gallery-overlay">
+                <h4>Tuscan Walnut Gathering</h4>
+                <span>Organic Wood Joinery</span>
+              </div>
+            </div>
+
+            <div class="gallery-item span-2 reveal-on-scroll">
+              <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1200&q=80" alt="Architectural Residence" class="gallery-img" loading="lazy">
+              <div class="gallery-overlay">
+                <h4>Grand Salon Residence</h4>
+                <span>Full Showroom Custom Fitout</span>
+              </div>
+            </div>
+
+            <div class="gallery-item reveal-on-scroll">
+              <img src="https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?auto=format&fit=crop&w=800&q=80" alt="Executive Teak Study" class="gallery-img" loading="lazy">
+              <div class="gallery-overlay">
+                <h4>Executive Home Office</h4>
+                <span>Teakwood & Leather Craft</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CUSTOMER TESTIMONIALS SLIDER -->
+      <section class="testimonials-section section-padding">
+        <div class="container">
+          <div class="section-header reveal-on-scroll">
+            <span class="section-kicker center text-gold">Client Reflections</span>
+            <h2 class="text-white">What Our Homeowners <span class="italic text-gold">Share</span></h2>
+            <p class="text-cream">Genuine experiences from interior designers, architects, and luxury homeowners who turned to TOLEX FURNITURE.</p>
+          </div>
+
+          <div class="testimonial-slider-container">
+            <div class="testimonial-slide active">
+              <div class="testimonial-stars">★ ★ ★ ★ ★</div>
+              <blockquote class="testimonial-quote">
+                "The Aurelia Curved Bouclé sofa completely transformed our penthouse living room. The craftsmanship is flawless, the comfort is unmatched, and the TOLEX design team made the delivery and room placement effortless."
+              </blockquote>
+              <div class="testimonial-author-wrap">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=160&q=80" alt="Eleanor Vance" class="testimonial-avatar" loading="lazy">
+                <div class="testimonial-author">
+                  <h4>Eleanor Vance</h4>
+                  <p>Architect & Homeowner — Kensington District</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="testimonial-slide">
+              <div class="testimonial-stars">★ ★ ★ ★ ★</div>
+              <blockquote class="testimonial-quote">
+                "As an interior designer, I have high standards for wood joinery and upholstery durability. TOLEX delivers international luxury showroom quality that surpasses Italian imports at double the price."
+              </blockquote>
+              <div class="testimonial-author-wrap">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=160&q=80" alt="Marcus Davenport" class="testimonial-avatar" loading="lazy">
+                <div class="testimonial-author">
+                  <h4>Marcus Davenport</h4>
+                  <p>Principal Stylist, Davenport Interiors</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="testimonial-slide">
+              <div class="testimonial-stars">★ ★ ★ ★ ★</div>
+              <blockquote class="testimonial-quote">
+                "Visiting their showroom was a breath of fresh air. No aggressive sales pressure, just deep design consultation and gorgeous tangible materials. Our Tuscan walnut dining suite is a true family heirloom."
+              </blockquote>
+              <div class="testimonial-author-wrap">
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=160&q=80" alt="Sophia Al-Rashid" class="testimonial-avatar" loading="lazy">
+                <div class="testimonial-author">
+                  <h4>Sophia Al-Rashid</h4>
+                  <p>Private Villa Owner</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="testimonial-controls">
+              <button type="button" class="testimonial-dot active" aria-label="Go to testimonial 1"></button>
+              <button type="button" class="testimonial-dot" aria-label="Go to testimonial 2"></button>
+              <button type="button" class="testimonial-dot" aria-label="Go to testimonial 3"></button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FINAL CALL TO ACTION -->
+      <section class="final-cta-section">
+        <div class="container">
+          <div class="cta-box reveal-on-scroll">
+            <span class="section-kicker center text-gold">Start Your Transformation</span>
+            <h2>Let's Make Your Dream Home <span class="italic text-gold">a Reality.</span></h2>
+            <p>Whether you are seeking a single statement sofa or complete bespoke interior furnishing, our showroom curators are ready to guide you.</p>
+            <div class="cta-btn-group">
+              <a href="#/contact" data-nav="contact" class="btn btn-primary">Contact Us Today</a>
+              <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.299.144.347.491 1.2.534 1.288.043.087.072.188.014.303-.058.116-.087.188-.173.289l-.26.303c-.087.087-.179.182-.077.357.101.174.449.741.964 1.2 1.056.941 1.396.969 1.62.81l.303-.433c.101-.144.202-.12.332-.072.13.048.824.39 1.055.505.231.116.385.173.442.271.058.098.058.566-.086.971z"/></svg>
+                Direct WhatsApp Chat
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div> <!-- End #view-home -->
+
+
+    <!-- ======================================================================
+         VIEW 2: ABOUT US (HERITAGE, PHILOSOPHY & VALUES)
+         ====================================================================== -->
+    <div class="spa-view" id="view-about">
+
+      <section class="inner-hero" style="background-image: url('assets/images/hero_living.jpg');">
+        <div class="inner-hero-overlay"></div>
+        <div class="container">
+          <div class="inner-hero-content reveal-on-scroll">
+            <div class="breadcrumb-nav">
+              <a href="#/home" data-nav="home">Home</a> / <span>About Us</span>
+            </div>
+            <span class="section-kicker">Our Heritage & Devotion</span>
+            <h1>Crafting Spaces of <span class="italic text-gold">Distinction & Warmth</span></h1>
+            <p>TOLEX FURNITURE was conceived with a single guiding philosophy: that exquisite furniture should not merely furnish a room, but inspire life lived within it.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- OUR STORY & WHO WE ARE -->
+      <section class="about-story-section section-padding">
+        <div class="container">
+          <div class="story-grid">
+            <div class="story-img-composition reveal-on-scroll">
+              <img src="https://images.unsplash.com/photo-1538688525198-9b88f6f53126?auto=format&fit=crop&w=900&q=80" alt="Artisanal Woodworking Joinery" class="story-img-main" loading="lazy">
+              <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80" alt="Interior Showroom Floor" class="story-img-secondary" loading="lazy">
+            </div>
+
+            <div class="story-text-content reveal-on-scroll">
+              <span class="section-kicker">Our Story</span>
+              <h2>A Dedication to <span class="italic text-gold">Timeless Aesthetics</span></h2>
+              <p class="mb-3">
+                TOLEX FURNITURE was founded to bridge the divide between impersonal mass-manufactured furniture and inaccessible haute couture atelier pieces. We recognized that contemporary homeowners crave warmth, architectural balance, and durability that withstands decades of family life.
+              </p>
+              <p class="mb-4">
+                Our showroom serves as a curated sanctuary where interior designers, architects, and discerning families can encounter tactile textiles, solid walnut grains, hand-buffed saddle leathers, and sculptural silhouettes. Each collection reflects an obsession with proportion, texture, and structural excellence.
+              </p>
+              
+              <div class="pt-3" style="border-top:1px solid rgba(161, 139, 120, 0.25);">
+                <h4 style="font-size:1.15rem; color:var(--c-charcoal-deep); margin-bottom:8px;">Who We Are</h4>
+                <p style="font-size:0.95rem;">
+                  We are an independent home furniture showroom featuring dedicated design consultants, space planners, and master craftsmen. We take pride in our warm, consultative approach that places your lifestyle, family needs, and spatial harmony at the heart of every recommendation.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- MISSION & VISION -->
+          <div class="mission-vision-grid reveal-on-scroll">
+            <div class="mv-card">
+              <span class="section-kicker">Our Mission</span>
+              <h3>Transforming Houses Into Meaningful Sanctuaries</h3>
+              <p>
+                To enrich daily living by curating and crafting furniture pieces that embody the highest standards of comfort, aesthetic poise, and lasting material integrity. We strive to provide transparent guidance, warm hospitality, and effortless white-glove showroom service for every client.
+              </p>
+            </div>
+
+            <div class="mv-card">
+              <span class="section-kicker">Our Vision</span>
+              <h3>The Benchmark for Contemporary Showroom Excellence</h3>
+              <p>
+                To be recognized as the premier destination for refined home furniture, where timeless European elegance meets approachable warmth, sustainable forestry practices, and bespoke personalization that endures through generations.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CORE VALUES -->
+      <section class="section-padding" style="background-color: var(--c-cream-soft);">
+        <div class="container">
+          <div class="section-header reveal-on-scroll">
+            <span class="section-kicker center">Guiding Principles</span>
+            <h2>Our Core <span class="italic text-gold">Values</span></h2>
+            <p>The six uncompromised commitments that define every design, material selection, and customer relationship at TOLEX FURNITURE.</p>
+          </div>
+
+          <div class="values-grid">
+            <div class="value-item-card reveal-on-scroll">
+              <div class="value-icon">✦</div>
+              <h4>Artisanal Mastery</h4>
+              <p>We honor traditional joinery—mortise and tenon frames, hand-tied coil springs, and precision stitching that guarantees decades of steadfast resilience.</p>
+            </div>
+
+            <div class="value-item-card reveal-on-scroll">
+              <div class="value-icon">✧</div>
+              <h4>Timeless Aesthetics</h4>
+              <p>We reject short-lived fads in favor of enduring silhouettes that age gracefully and seamlessly integrate into both classic and modern architectural spaces.</p>
+            </div>
+
+            <div class="value-item-card reveal-on-scroll">
+              <div class="value-icon">🌿</div>
+              <h4>Sustainable Sourcing</h4>
+              <p>All timber utilized across our dining suites, desks, and frames originates from certified, sustainably replenished forestry operations with low-VOC organic finishes.</p>
+            </div>
+
+            <div class="value-item-card reveal-on-scroll">
+              <div class="value-icon">☁</div>
+              <h4>Ergonomic Comfort</h4>
+              <p>A sofa or bed must deliver sublime physical solace. Every angle, cushion density, and lumbar curve is engineered for total restorative relaxation.</p>
+            </div>
+
+            <div class="value-item-card reveal-on-scroll">
+              <div class="value-icon">📐</div>
+              <h4>Bespoke Tailoring</h4>
+              <p>We recognize that no two residences are identical. We provide modular sizing, bespoke fabric swatches, wood finishes, and tailored storage solutions.</p>
+            </div>
+
+            <div class="value-item-card reveal-on-scroll">
+              <div class="value-icon">🛡</div>
+              <h4>Uncompromising Trust</h4>
+              <p>Transparent pricing, honest lead times, comprehensive frame warranties, and dependable after-sales care ensure complete peace of mind.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- WHY DISCERNING FAMILIES CHOOSE TOLEX -->
+      <section class="section-padding" style="background-color: var(--c-charcoal-deep); color: var(--c-white);">
+        <div class="container">
+          <div class="story-grid">
+            <div class="reveal-on-scroll">
+              <span class="section-kicker text-gold">The Showroom Experience</span>
+              <h2 class="text-white">Why Discerning Families <span class="italic text-gold">Choose TOLEX</span></h2>
+              <p class="text-cream mb-4">
+                Visiting our showroom is designed to be an inspiring, unhurried sensory experience. We invite you to sink into our bouclé lounge chairs, touch the cool hone of natural travertine tables, and review tailored color palettes over freshly brewed espresso.
+              </p>
+
+              <div style="display:flex; flex-direction:column; gap:18px;">
+                <div style="display:flex; gap:16px; align-items:flex-start;">
+                  <div style="color:var(--c-gold); font-size:1.3rem;">✓</div>
+                  <div>
+                    <h4 style="color:var(--c-white); font-size:1.15rem; margin-bottom:4px;">Direct Artisan Provenance</h4>
+                    <p style="color:var(--c-taupe-light); font-size:0.92rem;">Direct collaboration with specialized family ateliers eliminates excessive middlemen markups.</p>
+                  </div>
+                </div>
+
+                <div style="display:flex; gap:16px; align-items:flex-start;">
+                  <div style="color:var(--c-gold); font-size:1.3rem;">✓</div>
+                  <div>
+                    <h4 style="color:var(--c-white); font-size:1.15rem; margin-bottom:4px;">Complimentary Space Consultations</h4>
+                    <p style="color:var(--c-taupe-light); font-size:0.92rem;">Bring your floorplans or photos and our senior interior consultants will tailor scale-appropriate layouts.</p>
+                  </div>
+                </div>
+
+                <div style="display:flex; gap:16px; align-items:flex-start;">
+                  <div style="color:var(--c-gold); font-size:1.3rem;">✓</div>
+                  <div>
+                    <h4 style="color:var(--c-white); font-size:1.15rem; margin-bottom:4px;">White-Glove Delivery & Installation</h4>
+                    <p style="color:var(--c-taupe-light); font-size:0.92rem;">Our trained white-glove team inspects, delivers, assembles, and places each piece precisely in your residence.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="reveal-on-scroll">
+              <div class="arch-frame" style="height: 520px;">
+                <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1000&q=80" alt="Showroom Display" style="width:100%; height:100%; object-fit:cover;" loading="lazy">
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STATS STRIP -->
+      <section class="features-strip">
+        <div class="container">
+          <div class="features-strip-grid">
+            <div class="strip-item">
+              <div class="strip-icon"><span style="font-size:1.4rem; font-weight:700; color:var(--c-gold);">1.2k+</span></div>
+              <div><h5>Homes Furnished</h5><p>Across luxury private estates</p></div>
+            </div>
+            <div class="strip-item">
+              <div class="strip-icon"><span style="font-size:1.4rem; font-weight:700; color:var(--c-gold);">100%</span></div>
+              <div><h5>Certified Hardwood</h5><p>FSC-certified sustainable forestry</p></div>
+            </div>
+            <div class="strip-item">
+              <div class="strip-icon"><span style="font-size:1.4rem; font-weight:700; color:var(--c-gold);">15</span></div>
+              <div><h5>Master Craftsmen</h5><p>Decades of hand joinery mastery</p></div>
+            </div>
+            <div class="strip-item">
+              <div class="strip-icon"><span style="font-size:1.4rem; font-weight:700; color:var(--c-gold);">10-Yr</span></div>
+              <div><h5>Frame Guarantee</h5><p>Comprehensive peace of mind</p></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT CTA -->
+      <section class="final-cta-section">
+        <div class="container">
+          <div class="cta-box reveal-on-scroll">
+            <span class="section-kicker center text-gold">Plan Your Visit</span>
+            <h2>Experience the Warmth of Our <span class="italic text-gold">Showroom</span></h2>
+            <p>Book a dedicated private consultation or visit during our showroom hours to view our collections in person.</p>
+            <div class="cta-btn-group">
+              <a href="#/contact" data-nav="contact" class="btn btn-primary">Schedule a Consultation</a>
+              <a href="#/services" data-nav="services" class="btn btn-secondary">Explore Our Services</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div> <!-- End #view-about -->
+
+
+    <!-- ======================================================================
+         VIEW 3: OUR SERVICES (ALL 8 CATEGORIES & PROCESS)
+         ====================================================================== -->
+    <div class="spa-view" id="view-services">
+
+      <section class="inner-hero" style="background-image: url('assets/images/hero_living.jpg');">
+        <div class="inner-hero-overlay"></div>
+        <div class="container">
+          <div class="inner-hero-content reveal-on-scroll">
+            <div class="breadcrumb-nav">
+              <a href="#/home" data-nav="home">Home</a> / <span>Our Services</span>
+            </div>
+            <span class="section-kicker">Showroom Offerings & Bespoke Services</span>
+            <h1>Curated Furniture & <span class="italic text-gold">Interior Services</span></h1>
+            <p>From individual heirloom furniture acquisitions to full-residence spatial planning and white-glove curation, explore the premier services provided by TOLEX FURNITURE.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ALL 8 SERVICES GRID -->
+      <section class="section-padding" style="background-color: var(--c-warm-white);">
+        <div class="container">
+          <div class="section-header reveal-on-scroll">
+            <span class="section-kicker center">What We Provide</span>
+            <h2>Comprehensive Furniture & <span class="italic text-gold">Design Categories</span></h2>
+            <p>Browse our core furniture categories and specialized styling services. Inquire directly about customizations, dimensions, and showroom availability.</p>
+          </div>
+
+          <div class="services-grid">
+
+            <!-- 1. Living Room Furniture -->
+            <div class="service-card reveal-on-scroll" id="service-living">
+              <div class="service-img-wrap">
+                <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=800&q=80" alt="Living Room Furniture" class="service-img" loading="lazy">
+              </div>
+              <div class="service-content">
+                <span class="service-number">01</span>
+                <h3>Living Room Furniture</h3>
+                <p>
+                  The social heartbeat of your home. We craft and curate sculptural curved sofas, modular sectionals upholstered in French bouclé or full-grain Italian leather, low travertine coffee tables, and architectural media consoles.
+                </p>
+                <div class="service-actions">
+                  <button type="button" class="btn-link" onclick="openServiceDetail('Living Room Furniture', 'Our living room collection emphasizes ergonomic comfort paired with architectural poise. Each sofa features high-resilience multi-layer memory foam, solid kiln-dried oak framework, and stain-resistant textile protections. Custom modular lengths, corner orientations, and 50+ fabric choices available.')">Learn More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button>
+                  <a href="#/contact" data-nav="contact" class="btn btn-sm btn-outline-dark">Enquire</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- 2. Bedroom Furniture -->
+            <div class="service-card reveal-on-scroll" id="service-bedroom">
+              <div class="service-img-wrap">
+                <img src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=800&q=80" alt="Bedroom Furniture" class="service-img" loading="lazy">
+              </div>
+              <div class="service-content">
+                <span class="service-number">02</span>
+                <h3>Bedroom Furniture</h3>
+                <p>
+                  Sanctuaries designed for restorative sleep. Our collection encompasses upholstered vertical-fluted headboards, platform bed frames, orthopedic latex hybrid mattresses, bedside floating pedestals, and fitted dressing tables.
+                </p>
+                <div class="service-actions">
+                  <button type="button" class="btn-link" onclick="openServiceDetail('Bedroom Furniture', 'Experience serene sleeping quarters tailored to your exact mattress dimensions. Our platform beds eliminate box springs with breathable acoustic slat systems, while fluted timber nightstands offer silent soft-close drawers and integrated wire grommets.')">Learn More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button>
+                  <a href="#/contact" data-nav="contact" class="btn btn-sm btn-outline-dark">Enquire</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- 3. Dining Room Furniture -->
+            <div class="service-card reveal-on-scroll" id="service-dining">
+              <div class="service-img-wrap">
+                <img src="https://images.unsplash.com/photo-1617806118233-18e1de247200?auto=format&fit=crop&w=800&q=80" alt="Dining Room Furniture" class="service-img" loading="lazy">
+              </div>
+              <div class="service-content">
+                <span class="service-number">03</span>
+                <h3>Dining Room Furniture</h3>
+                <p>
+                  Furniture that turns meals into memorable celebrations. Handcrafted solid American walnut and oak dining tables, ergonomic dining chairs with performance upholstery, and bespoke sideboards with brass hardware.
+                </p>
+                <div class="service-actions">
+                  <button type="button" class="btn-link" onclick="openServiceDetail('Dining Room Furniture', 'From intimate 6-seater round tables to dramatic 12-seater executive banquet tables with continuous live-edge or waterfall joinery. Every surface is coated with non-toxic organic oils resistant to heat, liquids, and daily family dining.')">Learn More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button>
+                  <a href="#/contact" data-nav="contact" class="btn btn-sm btn-outline-dark">Enquire</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- 4. Office Furniture -->
+            <div class="service-card reveal-on-scroll" id="service-office">
+              <div class="service-img-wrap">
+                <img src="https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?auto=format&fit=crop&w=800&q=80" alt="Office Furniture" class="service-img" loading="lazy">
+              </div>
+              <div class="service-content">
+                <span class="service-number">04</span>
+                <h3>Office Furniture</h3>
+                <p>
+                  Commanding workspaces tailored for clarity and productivity. Executive teakwood desks, ergonomic synchronized-tilt task chairs, modular library shelving, and integrated cord management solutions.
+                </p>
+                <div class="service-actions">
+                  <button type="button" class="btn-link" onclick="openServiceDetail('Office Furniture', 'Upgrade your executive suite or home study with solid timber executive desks featuring concealed power trays, genuine leather writing inlays, and matching fluted credenzas. Engineered to combine dignified presence with modern ergonomic wellness.')">Learn More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button>
+                  <a href="#/contact" data-nav="contact" class="btn btn-sm btn-outline-dark">Enquire</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- 5. Home Furniture (Complete Fitouts) -->
+            <div class="service-card reveal-on-scroll" id="service-home">
+              <div class="service-img-wrap">
+                <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80" alt="Complete Home Furniture" class="service-img" loading="lazy">
+              </div>
+              <div class="service-content">
+                <span class="service-number">05</span>
+                <h3>Home Furniture (Full Fitout)</h3>
+                <p>
+                  Comprehensive whole-residence furniture suites tailored to new homeowners, renovations, and luxury developments seeking a unified design narrative across all rooms.
+                </p>
+                <div class="service-actions">
+                  <button type="button" class="btn-link" onclick="openServiceDetail('Home Furniture & Full Fitouts', 'Furnish your entire villa, apartment, or estate in cohesive aesthetic unity. We coordinate wood species, textile tones, metal accents, and proportion scales across your foyer, living, dining, and bedrooms with bundled showroom incentives.')">Learn More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button>
+                  <a href="#/contact" data-nav="contact" class="btn btn-sm btn-outline-dark">Enquire</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- 6. Furniture Selection Assistance -->
+            <div class="service-card reveal-on-scroll" id="service-selection">
+              <div class="service-img-wrap">
+                <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=800&q=80" alt="Furniture Selection Assistance" class="service-img" loading="lazy">
+              </div>
+              <div class="service-content">
+                <span class="service-number">06</span>
+                <h3>Furniture Selection Assistance</h3>
+                <p>
+                  Overwhelmed by choices? Our showroom curators guide you through textile weights, leather patinas, wood grain pairings, and durability considerations tailored to your household.
+                </p>
+                <div class="service-actions">
+                  <button type="button" class="btn-link" onclick="openServiceDetail('Furniture Selection Assistance', 'Never make a costly sizing or fabric mismatch error. Our showroom specialists review your room dimensions, natural lighting exposure, pet/child considerations, and style preferences to curate a personalized selection list.')">Learn More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button>
+                  <a href="#/contact" data-nav="contact" class="btn btn-sm btn-outline-dark">Enquire</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- 7. Furniture Consultation -->
+            <div class="service-card reveal-on-scroll" id="service-consultation">
+              <div class="service-img-wrap">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="Furniture Consultation" class="service-img" loading="lazy">
+              </div>
+              <div class="service-content">
+                <span class="service-number">07</span>
+                <h3>Furniture Consultation</h3>
+                <p>
+                  Dedicated one-on-one appointments with our senior furniture specialists. We examine your architectural blueprints, lighting schemes, and aesthetic aspirations in depth.
+                </p>
+                <div class="service-actions">
+                  <button type="button" class="btn-link" onclick="openServiceDetail('Furniture Consultation', 'Book private access to our showroom design studio. We lay out real material swatches, 3D room renders, and dimensional mockups. Perfect for homeowners embarking on custom builds or luxury interior revamps.')">Learn More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button>
+                  <a href="#/contact" data-nav="contact" class="btn btn-sm btn-outline-dark">Enquire</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- 8. Interior Styling & Space Enhancement -->
+            <div class="service-card reveal-on-scroll" id="service-styling">
+              <div class="service-img-wrap">
+                <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=800&q=80" alt="Interior Styling" class="service-img" loading="lazy">
+              </div>
+              <div class="service-content">
+                <span class="service-number">08</span>
+                <h3>Interior Styling & Space Enhancement</h3>
+                <p>
+                  Transform rooms into cohesive visual stories. We curate decorative art accents, fluted lighting, sculptural consoles, and tactile accessories that balance proportion and atmosphere.
+                </p>
+                <div class="service-actions">
+                  <button type="button" class="btn-link" onclick="openServiceDetail('Interior Styling & Space Enhancement', 'Our stylists complete the final 20% of interior design that brings an entire room to life: atmospheric floor lamps, sculptural vessels, travertine pedestals, and balanced rug placement that ties the entire furniture layout together.')">Learn More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></button>
+                  <a href="#/contact" data-nav="contact" class="btn btn-sm btn-outline-dark">Enquire</a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- 4-STEP CONSULTATION JOURNEY -->
+      <section class="process-section section-padding">
+        <div class="container">
+          <div class="section-header reveal-on-scroll">
+            <span class="section-kicker center text-gold">The Consultation Journey</span>
+            <h2 class="text-white">How We Bring Your Vision <span class="italic text-gold">to Life</span></h2>
+            <p class="text-cream">A seamless, personalized four-step process from initial showroom discovery to white-glove in-home installation.</p>
+          </div>
+
+          <div class="process-grid">
+            <div class="process-card reveal-on-scroll">
+              <div class="process-number">01</div>
+              <h4>Discovery & Space Mapping</h4>
+              <p>We review your floorplans, architectural aesthetic, light exposure, and daily lifestyle requirements to define spatial priorities.</p>
+            </div>
+
+            <div class="process-card reveal-on-scroll">
+              <div class="process-number">02</div>
+              <h4>Material & Fabric Curation</h4>
+              <p>Explore tangible wood swatches, full-grain leathers, and bouclé textiles in our studio to establish a warm, tactile color palette.</p>
+            </div>
+
+            <div class="process-card reveal-on-scroll">
+              <div class="process-number">03</div>
+              <h4>Custom Crafting & Inspection</h4>
+              <p>Our artisan workshops assemble and finish each selected item, followed by a rigorous 24-point quality and stability inspection.</p>
+            </div>
+
+            <div class="process-card reveal-on-scroll">
+              <div class="process-number">04</div>
+              <h4>White-Glove Installation</h4>
+              <p>Our dedicated delivery crew transports, unboxes, positions, and cleans every piece in your home, removing all packaging materials.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SERVICES CTA -->
+      <section class="final-cta-section">
+        <div class="container">
+          <div class="cta-box reveal-on-scroll">
+            <span class="section-kicker center text-gold">Tailored Consultation</span>
+            <h2>Need Assistance Selecting the <span class="italic text-gold">Right Furniture?</span></h2>
+            <p>Speak directly with our senior showroom consultants for space planning guidance, fabric samples, or custom orders.</p>
+            <div class="cta-btn-group">
+              <a href="#/contact" data-nav="contact" class="btn btn-primary">Book Showroom Consultation</a>
+              <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.299.144.347.491 1.2.534 1.288.043.087.072.188.014.303-.058.116-.087.188-.173.289l-.26.303c-.087.087-.179.182-.077.357.101.174.449.741.964 1.2 1.056.941 1.396.969 1.62.81l.303-.433c.101-.144.202-.12.332-.072.13.048.824.39 1.055.505.231.116.385.173.442.271.058.098.058.566-.086.971z"/></svg>
+                Ask on WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div> <!-- End #view-services -->
+
+
+    <!-- ======================================================================
+         VIEW 4: CONTACT & VIP BOOKING SCHEDULER
+         ====================================================================== -->
+    <div class="spa-view" id="view-contact">
+
+      <section class="inner-hero" style="background-image: url('assets/images/hero_bedroom.jpg');">
+        <div class="inner-hero-overlay"></div>
+        <div class="container">
+          <div class="inner-hero-content reveal-on-scroll">
+            <div class="breadcrumb-nav">
+              <a href="#/home" data-nav="home">Home</a> / <span>Contact Us</span>
+            </div>
+            <span class="section-kicker">Showroom Concierge & Visiting</span>
+            <h1>Visit Our Showroom & <span class="italic text-gold">Connect With Us</span></h1>
+            <p>Our dedicated showroom consultants welcome your inquiries. Experience our tactile materials in person or reach out for custom orders, floorplan advice, and delivery schedules.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT MAIN LAYOUT -->
+      <section class="contact-section section-padding">
+        <div class="container">
+          <div class="contact-layout">
+
+            <!-- Left Column: Showroom Information Panel -->
+            <div class="contact-info-panel reveal-on-scroll">
+              <span class="section-kicker text-gold">Showroom Concierge</span>
+              <h3>We Welcome Discerning Inquiries</h3>
+              <p class="lead">
+                Whether you are furnishing a new residence or searching for a single signature statement, our team is at your disposal.
+              </p>
+
+              <div class="contact-channels-list">
+                <!-- Address -->
+                <div class="channel-card">
+                  <div class="channel-icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                  </div>
+                  <div class="channel-content">
+                    <h5>Showroom Location</h5>
+                    <p>742 Evergreen Luxury Blvd, Suite 100<br>Design District, Metropolitan City</p>
+                  </div>
+                </div>
+
+                <!-- Direct Hotline -->
+                <div class="channel-card">
+                  <div class="channel-icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                  </div>
+                  <div class="channel-content">
+                    <h5>Showroom Telephone</h5>
+                    <p><a href="tel:+18005558653">+1 (800) 555-TOLEX</a></p>
+                    <p><a href="tel:+15557892345">+1 (555) 789-2345</a> (Direct Line)</p>
+                  </div>
+                </div>
+
+                <!-- Email -->
+                <div class="channel-card">
+                  <div class="channel-icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                  </div>
+                  <div class="channel-content">
+                    <h5>Electronic Inquiries</h5>
+                    <p><a href="mailto:concierge@tolexfurniture.com">concierge@tolexfurniture.com</a></p>
+                    <p><a href="mailto:projects@tolexfurniture.com">projects@tolexfurniture.com</a></p>
+                  </div>
+                </div>
+
+                <!-- Visiting Hours -->
+                <div class="channel-card">
+                  <div class="channel-icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                  </div>
+                  <div class="channel-content">
+                    <h5>Gallery Visiting Hours</h5>
+                    <p>Monday – Saturday: 9:30 AM – 7:30 PM</p>
+                    <p>Sunday: By Private Appointment Only</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Direct WhatsApp Button -->
+              <div class="pt-4" style="border-top: 1px solid rgba(197, 166, 110, 0.25);">
+                <a href="https://wa.me/1234567890?text=Hello%20TOLEX%20FURNITURE%2C%20I%20would%20like%20to%20connect%20with%20a%20concierge." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp w-100" style="width: 100%;">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.299.144.347.491 1.2.534 1.288.043.087.072.188.014.303-.058.116-.087.188-.173.289l-.26.303c-.087.087-.179.182-.077.357.101.174.449.741.964 1.2 1.056.941 1.396.969 1.62.81l.303-.433c.101-.144.202-.12.332-.072.13.048.824.39 1.055.505.231.116.385.173.442.271.058.098.058.566-.086.971z"/></svg>
+                  Direct WhatsApp Enquiry
+                </a>
+              </div>
+
+              <!-- Social Media Icons -->
+              <div class="mt-4 pt-3" style="margin-top:24px;">
+                <p style="font-size:0.8rem; text-transform:uppercase; letter-spacing:0.12em; color:var(--c-taupe-light); margin-bottom:12px;">Follow Our Design Journey</p>
+                <div class="footer-social-links">
+                  <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-icon-link" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+                  <a href="https://pinterest.com" target="_blank" rel="noopener noreferrer" class="social-icon-link" aria-label="Pinterest"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="9" x2="12" y2="15"></line><path d="M12 2a10 10 0 0 0-3.6 19.3c-.1-.8-.1-2.1.2-3 .3-.9 1.9-8.1 1.9-8.1s-.5-1-.5-2.5c0-2.4 1.4-4.1 3.1-4.1 1.5 0 2.2 1.1 2.2 2.4 0 1.5-.9 3.7-1.4 5.8-.4 1.7.9 3.1 2.6 3.1 3.1 0 5.5-3.3 5.5-8.1 0-4.2-3-7.2-7.4-7.2-5 0-8 3.8-8 7.7 0 1.5.6 3.1 1.3 4 .1.2.2.3.1.6l-.5 2c-.1.3-.3.4-.6.3-2.1-1-3.4-4.1-3.4-6.6 0-5.4 3.9-10.4 11.3-10.4 5.9 0 10.5 4.3 10.5 9.9 0 6-3.7 10.7-8.9 10.7-1.7 0-3.4-.9-4-2l-1.1 4.2c-.4 1.5-1.5 3.4-2.2 4.6A10 10 0 1 0 12 2z"></path></svg></a>
+                  <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-icon-link" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Column: Interactive Luxury Contact Form -->
+            <div class="contact-form-panel reveal-on-scroll">
+              <span class="section-kicker">Showroom Request</span>
+              <h3>Send an Inquiry</h3>
+              <p>Please share your requirements below. Our showroom concierge will review your project and get in touch within 24 business hours.</p>
+
+              <form id="tolex-contact-form" novalidate>
+                <div class="form-grid">
+
+                  <div class="form-group">
+                    <label for="contact-name" class="form-label">Full Name *</label>
+                    <input type="text" id="contact-name" class="form-control" placeholder="e.g. Eleanor Vance" required>
+                    <span class="form-error-msg">Please enter your name</span>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="contact-email" class="form-label">Email Address *</label>
+                    <input type="email" id="contact-email" class="form-control" placeholder="e.g. eleanor@vance-interiors.com" required>
+                    <span class="form-error-msg">Please enter a valid email address</span>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="contact-phone" class="form-label">Telephone / Mobile *</label>
+                    <input type="tel" id="contact-phone" class="form-control" placeholder="e.g. +1 (555) 019-2834" required>
+                    <span class="form-error-msg">Please enter your phone number</span>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="contact-subject" class="form-label">Primary Interest *</label>
+                    <select id="contact-subject" class="form-control">
+                      <option value="General Showroom Inquiry">General Showroom Inquiry</option>
+                      <option value="Living Room Furniture">Living Room Furniture</option>
+                      <option value="Bedroom Furniture">Bedroom Furniture</option>
+                      <option value="Dining Room Furniture">Dining Room Furniture</option>
+                      <option value="Office Furniture">Office Furniture</option>
+                      <option value="Full Residence Fitout">Full Residence Fitout</option>
+                      <option value="Furniture Consultation">Furniture Consultation Appointment</option>
+                      <option value="Interior Styling and Space Enhancement">Interior Styling & Space Enhancement</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group full-width">
+                    <label for="contact-message" class="form-label">Message & Project Details *</label>
+                    <textarea id="contact-message" class="form-control" placeholder="Tell us about the pieces you are interested in, your room dimensions, or any specific fabric/timber preferences..." required></textarea>
+                    <span class="form-error-msg">Please write a short message (min 10 characters)</span>
+                  </div>
+
+                  <div class="form-group full-width mt-2">
+                    <button type="submit" class="btn btn-primary w-100" style="padding:16px;">
+                      Submit Showroom Inquiry
+                    </button>
+                  </div>
+
+                </div>
+
+                <div class="form-feedback-toast" role="alert"></div>
+              </form>
+            </div>
+
+          </div>
+
+          <!-- VISUAL SHOWROOM LOCATION CARD -->
+          <div class="map-visual-card reveal-on-scroll">
+            <div class="map-card-info">
+              <span class="section-kicker text-gold">Showroom Destination</span>
+              <h4>Experience the Space in Person</h4>
+              <p>
+                Conveniently situated in the heart of the Metropolitan Design District with complimentary private parking and dedicated stylist consultations.
+              </p>
+            </div>
+            <div style="display:flex; gap:16px; flex-wrap:wrap;">
+              <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg>
+                Get Driving Directions
+              </a>
+              <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
+                Notify Arrival
+              </a>
+            </div>
+          </div>
+
+          <!-- VIP APPOINTMENT SCHEDULER (.ICS CALENDAR EXPORT) -->
+          <div class="vip-booking-section mt-5 reveal-on-scroll" id="book-vip" style="border-radius:var(--radius-md); padding:50px 45px; border:1px solid rgba(197, 166, 110, 0.35);">
+            <div style="max-width:760px; margin:0 auto; text-align:center;">
+              <span class="section-kicker center text-gold">VIP Concierge Service</span>
+              <h2 class="text-white" style="font-size:2.2rem; margin-bottom:12px;">Schedule a Private <span class="italic text-gold">Showroom Consultation</span></h2>
+              <p class="text-cream" style="margin-bottom:32px;">
+                Book an uninterrupted 90-minute session with our senior interior consultants. Review 3D floorplans, fabric swatches, and timber samples over espresso.
+              </p>
+
+              <form id="vip-booking-form" style="text-align:left;">
+                <div class="form-grid">
+                  <div class="form-group">
+                    <label for="vip-name" class="form-label" style="color:var(--c-cream);">Your Full Name *</label>
+                    <input type="text" id="vip-name" class="form-control" placeholder="e.g. Lady Vivienne Montgomery" required>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="vip-email" class="form-label" style="color:var(--c-cream);">Email for Calendar Invite *</label>
+                    <input type="email" id="vip-email" class="form-control" placeholder="e.g. vivienne@montgomery.com" required>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="vip-service-type" class="form-label" style="color:var(--c-cream);">Appointment Type *</label>
+                    <select id="vip-service-type" class="form-control">
+                      <option value="In-Showroom VIP Viewing">Private In-Showroom VIP Viewing</option>
+                      <option value="Virtual 3D Walkthrough">Virtual 3D Video Walkthrough</option>
+                      <option value="At-Home Spatial Survey">At-Home Spatial Planning Survey</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="vip-booking-date" class="form-label" style="color:var(--c-cream);">Preferred Date *</label>
+                    <input type="date" id="vip-booking-date" class="form-control" required>
+                  </div>
+
+                  <div class="form-group full-width">
+                    <label class="form-label" style="color:var(--c-cream); margin-bottom:6px;">Select Preferred Time Slot *</label>
+                    <div class="booking-slots-grid">
+                      <button type="button" class="slot-btn active" data-slot="10:00 AM">10:00 AM – 11:30 AM</button>
+                      <button type="button" class="slot-btn" data-slot="12:30 PM">12:30 PM – 2:00 PM</button>
+                      <button type="button" class="slot-btn" data-slot="3:00 PM">3:00 PM – 4:30 PM</button>
+                      <button type="button" class="slot-btn" data-slot="5:30 PM">5:30 PM – 7:00 PM</button>
+                    </div>
+                  </div>
+
+                  <div class="form-group full-width mt-2">
+                    <button type="submit" class="btn btn-primary w-100" style="padding:16px;">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                      Confirm VIP Session & Download Calendar Invite (.ICS)
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+    </div> <!-- End #view-contact -->
+
+  </main> <!-- End #app-root -->
 
   <!-- ========================================================================
-       WHY CHOOSE US (INSPIRED BY FLYER BRAND ELEMENTS)
-       ======================================================================== -->
-  <section class="why-choose-section section-padding">
-    <div class="container">
-      <div class="section-header reveal-on-scroll">
-        <span class="section-kicker center">The TOLEX Distinction</span>
-        <h2>Why Discerning Homeowners <span class="italic text-gold">Choose Us</span></h2>
-        <p>We blend timeless architectural design with unyielding structural integrity and personalized concierge service.</p>
-      </div>
-
-      <div class="why-grid">
-        <!-- Pillar 1 -->
-        <div class="why-card reveal-on-scroll">
-          <div class="why-icon-box">
-            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-          </div>
-          <h3>Quality Furniture Selection</h3>
-          <p>Every sofa, dining set, and wardrobe undergoes stringent durability audits, using sustainably harvested hardwoods and certified stain-resistant Italian leathers.</p>
-        </div>
-
-        <!-- Pillar 2 -->
-        <div class="why-card reveal-on-scroll">
-          <div class="why-icon-box">
-            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
-          </div>
-          <h3>Elegant & Modern Designs</h3>
-          <p>Our designs bridge contemporary minimalism with classical warmth, making each item an enduring focal point that complements diverse interior architectures.</p>
-        </div>
-
-        <!-- Pillar 3 -->
-        <div class="why-card reveal-on-scroll">
-          <div class="why-icon-box">
-            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-          </div>
-          <h3>Comfort & Durability</h3>
-          <p>Multi-density memory foam layering, pocketed micro-springs, and ergonomic frame geometries ensure our seating and mattresses feel as sublime as they look.</p>
-        </div>
-
-        <!-- Pillar 4 -->
-        <div class="why-card reveal-on-scroll">
-          <div class="why-icon-box">
-            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
-          </div>
-          <h3>Affordable Luxury</h3>
-          <p>By curating directly from artisan workshops and avoiding conventional retail markups, we deliver museum-caliber finishes at transparent, fair showroom pricing.</p>
-        </div>
-
-        <!-- Pillar 5 -->
-        <div class="why-card reveal-on-scroll">
-          <div class="why-icon-box">
-            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-          </div>
-          <h3>Customer Satisfaction</h3>
-          <p>Over a thousand luxury homes furnished with glowing recommendations. We treat each customer residence with individual attentiveness and white-glove respect.</p>
-        </div>
-
-        <!-- Pillar 6 -->
-        <div class="why-card reveal-on-scroll">
-          <div class="why-icon-box">
-            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-          </div>
-          <h3>Professional Customer Support</h3>
-          <p>Dedicated design consultants assist with spatial planning, swatches, custom sizing, delivery scheduling, and complimentary in-home styling consultations.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========================================================================
-       OUR SERVICES PREVIEW
-       ======================================================================== -->
-  <section class="services-section section-padding">
-    <div class="container">
-      <div class="section-header reveal-on-scroll">
-        <span class="section-kicker center">Showroom & Bespoke Services</span>
-        <h2>End-to-End Solutions for <span class="italic text-gold">Refined Interiors</span></h2>
-        <p>Beyond our curated furniture collections, our team provides tailored space planning, furniture consultation, and white-glove staging.</p>
-      </div>
-
-      <div class="services-grid">
-        <!-- Service Preview 1 -->
-        <div class="service-card reveal-on-scroll">
-          <div class="service-img-wrap">
-            <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=800&q=80" alt="Living Room Furniture" class="service-img" loading="lazy">
-          </div>
-          <div class="service-content">
-            <span class="service-number">01</span>
-            <h3>Living Room Furniture</h3>
-            <p>Sculptural modular sofas, genuine Italian leather sectionals, accent armchairs, marble coffee tables, and architectural entertainment consoles.</p>
-            <div class="service-actions">
-              <a href="services.html#service-living" class="btn-link">Learn More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
-              <a href="contact.html" class="btn btn-sm btn-outline-dark">Make Enquiry</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Service Preview 2 -->
-        <div class="service-card reveal-on-scroll">
-          <div class="service-img-wrap">
-            <img src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=800&q=80" alt="Bedroom Furniture" class="service-img" loading="lazy">
-          </div>
-          <div class="service-content">
-            <span class="service-number">02</span>
-            <h3>Bedroom Furniture</h3>
-            <p>Upholstered king and queen platform beds, orthopedic natural latex mattresses, custom fluted nightstands, and modular fitted wardrobe suites.</p>
-            <div class="service-actions">
-              <a href="services.html#service-bedroom" class="btn-link">Learn More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
-              <a href="contact.html" class="btn btn-sm btn-outline-dark">Make Enquiry</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Service Preview 3 -->
-        <div class="service-card reveal-on-scroll">
-          <div class="service-img-wrap">
-            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="Interior Consultation" class="service-img" loading="lazy">
-          </div>
-          <div class="service-content">
-            <span class="service-number">03</span>
-            <h3>Interior Styling & Consultation</h3>
-            <p>Collaborative 1-on-1 sessions with our senior stylists to choose color harmonies, fabric swatches, wood finishes, and scale-accurate 3D floorplans.</p>
-            <div class="service-actions">
-              <a href="services.html#service-consultation" class="btn-link">Learn More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
-              <a href="contact.html" class="btn btn-sm btn-outline-dark">Make Enquiry</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="text-center mt-5" style="text-align: center; margin-top: 45px;">
-        <a href="services.html" class="btn btn-dark">View All 8 Showroom Services</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========================================================================
-       GALLERY SECTION
-       ======================================================================== -->
-  <section class="gallery-section section-padding">
-    <div class="container">
-      <div class="section-header reveal-on-scroll">
-        <span class="section-kicker center">Showroom Inspiration</span>
-        <h2>Curated Interior <span class="italic text-gold">Showcase</span></h2>
-        <p>A glimpse into the living spaces, private estates, and luxury penthouses styled with TOLEX signature furniture collections.</p>
-      </div>
-
-      <div class="gallery-grid">
-        <div class="gallery-item span-2 reveal-on-scroll">
-          <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=80" alt="Warm Minimalist Living Room" class="gallery-img" loading="lazy">
-          <div class="gallery-overlay">
-            <h4>Palazzo Living Room</h4>
-            <span>Milan Minimalist Aesthetics</span>
-          </div>
-        </div>
-
-        <div class="gallery-item reveal-on-scroll">
-          <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=800&q=80" alt="Sculptural Armchair" class="gallery-img" loading="lazy">
-          <div class="gallery-overlay">
-            <h4>The Bouclé Lounge</h4>
-            <span>Armchair & Lighting Accent</span>
-          </div>
-        </div>
-
-        <div class="gallery-item reveal-on-scroll">
-          <img src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=800&q=80" alt="Master Bedroom" class="gallery-img" loading="lazy">
-          <div class="gallery-overlay">
-            <h4>Fluted Velvet Bed Suite</h4>
-            <span>Warm Ambient Lighting</span>
-          </div>
-        </div>
-
-        <div class="gallery-item reveal-on-scroll">
-          <img src="https://images.unsplash.com/photo-1617806118233-18e1de247200?auto=format&fit=crop&w=800&q=80" alt="Artisanal Dining Room" class="gallery-img" loading="lazy">
-          <div class="gallery-overlay">
-            <h4>Tuscan Walnut Gathering</h4>
-            <span>Organic Wood Joinery</span>
-          </div>
-        </div>
-
-        <div class="gallery-item span-2 reveal-on-scroll">
-          <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1200&q=80" alt="Architectural Residence" class="gallery-img" loading="lazy">
-          <div class="gallery-overlay">
-            <h4>Grand Salon Residence</h4>
-            <span>Full Showroom Custom Fitout</span>
-          </div>
-        </div>
-
-        <div class="gallery-item reveal-on-scroll">
-          <img src="https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?auto=format&fit=crop&w=800&q=80" alt="Executive Teak Study" class="gallery-img" loading="lazy">
-          <div class="gallery-overlay">
-            <h4>Executive Home Office</h4>
-            <span>Teakwood & Leather Craft</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========================================================================
-       CUSTOMER TESTIMONIALS SLIDER
-       ======================================================================== -->
-  <section class="testimonials-section section-padding">
-    <div class="container">
-      <div class="section-header reveal-on-scroll">
-        <span class="section-kicker center text-gold">Client Reflections</span>
-        <h2 class="text-white">What Our Homeowners <span class="italic text-gold">Share</span></h2>
-        <p class="text-cream">Genuine experiences from interior designers, architects, and luxury homeowners who turned to TOLEX FURNITURE.</p>
-      </div>
-
-      <div class="testimonial-slider-container">
-        <!-- Testimonial 1 -->
-        <div class="testimonial-slide active">
-          <div class="testimonial-stars">★ ★ ★ ★ ★</div>
-          <blockquote class="testimonial-quote">
-            "The Aurelia Curved Bouclé sofa completely transformed our penthouse living room. The craftsmanship is flawless, the comfort is unmatched, and the TOLEX design team made the delivery and room placement effortless."
-          </blockquote>
-          <div class="testimonial-author-wrap">
-            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=160&q=80" alt="Eleanor Vance" class="testimonial-avatar" loading="lazy">
-            <div class="testimonial-author">
-              <h4>Eleanor Vance</h4>
-              <p>Architect & Homeowner — Kensington District</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Testimonial 2 -->
-        <div class="testimonial-slide">
-          <div class="testimonial-stars">★ ★ ★ ★ ★</div>
-          <blockquote class="testimonial-quote">
-            "As an interior designer, I have high standards for wood joinery and upholstery durability. TOLEX delivers international luxury showroom quality that surpasses Italian imports at double the price."
-          </blockquote>
-          <div class="testimonial-author-wrap">
-            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=160&q=80" alt="Marcus Davenport" class="testimonial-avatar" loading="lazy">
-            <div class="testimonial-author">
-              <h4>Marcus Davenport</h4>
-              <p>Principal Stylist, Davenport Interiors</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Testimonial 3 -->
-        <div class="testimonial-slide">
-          <div class="testimonial-stars">★ ★ ★ ★ ★</div>
-          <blockquote class="testimonial-quote">
-            "Visiting their showroom was a breath of fresh air. No aggressive sales pressure, just deep design consultation and gorgeous tangible materials. Our Tuscan walnut dining suite is a true family heirloom."
-          </blockquote>
-          <div class="testimonial-author-wrap">
-            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=160&q=80" alt="Sophia Al-Rashid" class="testimonial-avatar" loading="lazy">
-            <div class="testimonial-author">
-              <h4>Sophia Al-Rashid</h4>
-              <p>Private Villa Owner</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Carousel Dots -->
-        <div class="testimonial-controls">
-          <button type="button" class="testimonial-dot active" aria-label="Go to testimonial 1"></button>
-          <button type="button" class="testimonial-dot" aria-label="Go to testimonial 2"></button>
-          <button type="button" class="testimonial-dot" aria-label="Go to testimonial 3"></button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========================================================================
-       FINAL CALL TO ACTION
-       ======================================================================== -->
-  <section class="final-cta-section">
-    <div class="container">
-      <div class="cta-box reveal-on-scroll">
-        <span class="section-kicker center text-gold">Start Your Transformation</span>
-        <h2>Let's Make Your Dream Home <span class="italic text-gold">a Reality.</span></h2>
-        <p>Whether you are seeking a single statement sofa or complete bespoke interior furnishing, our showroom curators are ready to guide you.</p>
-        <div class="cta-btn-group">
-          <a href="contact.html" class="btn btn-primary">Contact Us Today</a>
-          <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.299.144.347.491 1.2.534 1.288.043.087.072.188.014.303-.058.116-.087.188-.173.289l-.26.303c-.087.087-.179.182-.077.357.101.174.449.741.964 1.2 1.056.941 1.396.969 1.62.81l.303-.433c.101-.144.202-.12.332-.072.13.048.824.39 1.055.505.231.116.385.173.442.271.058.098.058.566-.086.971z"/></svg>
-            Direct WhatsApp Chat
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========================================================================
-       FOOTER
+       GLOBAL FOOTER
        ======================================================================== -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-top">
         <!-- Brand Info -->
         <div class="footer-col footer-brand">
-          <a href="index.html" class="brand-logo mb-3">
+          <a href="#/home" data-nav="home" class="brand-logo mb-3">
             <svg class="logo-symbol" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
               <circle cx="32" cy="32" r="30" stroke="#C5A66E" stroke-width="1.5" stroke-dasharray="3 3" opacity="0.6"/>
               <path d="M14 38C14 26 22 18 32 18C42 18 50 26 50 38" stroke="#C5A66E" stroke-width="2" stroke-linecap="round"/>
@@ -761,11 +1431,11 @@
         <div class="footer-col">
           <h4>Explore</h4>
           <ul class="footer-links-list">
-            <li><a href="index.html">Home Showroom</a></li>
-            <li><a href="about.html">About TOLEX</a></li>
-            <li><a href="services.html">Showroom Services</a></li>
-            <li><a href="contact.html">Contact & Visiting</a></li>
-            <li><a href="#catalogue">Furniture Catalogue</a></li>
+            <li><a href="#/home" data-nav="home">Home Showroom</a></li>
+            <li><a href="#/about" data-nav="about">About TOLEX</a></li>
+            <li><a href="#/services" data-nav="services">Showroom Services</a></li>
+            <li><a href="#/contact" data-nav="contact">Contact & Visiting</a></li>
+            <li><a href="#catalogue" data-nav="home">Furniture Catalogue</a></li>
           </ul>
         </div>
 
@@ -773,12 +1443,12 @@
         <div class="footer-col">
           <h4>Collections</h4>
           <ul class="footer-links-list">
-            <li><a href="#catalogue">Living Room & Sofas</a></li>
-            <li><a href="#catalogue">Beds & Mattresses</a></li>
-            <li><a href="#catalogue">Wardrobes & Cabinets</a></li>
-            <li><a href="#catalogue">Dining Tables & Chairs</a></li>
-            <li><a href="#catalogue">Executive Office Desks</a></li>
-            <li><a href="#catalogue">TV Consoles & Decor</a></li>
+            <li><a href="#catalogue" data-nav="home">Living Room & Sofas</a></li>
+            <li><a href="#catalogue" data-nav="home">Beds & Mattresses</a></li>
+            <li><a href="#catalogue" data-nav="home">Wardrobes & Cabinets</a></li>
+            <li><a href="#catalogue" data-nav="home">Dining Tables & Chairs</a></li>
+            <li><a href="#catalogue" data-nav="home">Executive Office Desks</a></li>
+            <li><a href="#catalogue" data-nav="home">TV Consoles & Decor</a></li>
           </ul>
         </div>
 
@@ -851,7 +1521,7 @@
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.299.144.347.491 1.2.534 1.288.043.087.072.188.014.303-.058.116-.087.188-.173.289l-.26.303c-.087.087-.179.182-.077.357.101.174.449.741.964 1.2 1.056.941 1.396.969 1.62.81l.303-.433c.101-.144.202-.12.332-.072.13.048.824.39 1.055.505.231.116.385.173.442.271.058.098.058.566-.086.971z"/></svg>
           Send Enquiry via WhatsApp
         </button>
-        <a href="contact.html" class="btn btn-dark">Submit Showroom Form</a>
+        <a href="#/contact" data-nav="contact" class="btn btn-dark">Submit Showroom Form</a>
         <button type="button" class="btn btn-outline-dark btn-clear-enquiries" style="font-size:0.78rem;">Clear List</button>
       </div>
     </div>
@@ -934,6 +1604,53 @@
       </div>
     </div>
   </div>
+
+  <!-- ========================================================================
+       SERVICE DETAIL MODAL
+       ======================================================================== -->
+  <div class="modal-backdrop" id="service-modal-backdrop" aria-hidden="true">
+    <div class="product-modal-dialog" style="grid-template-columns: 1fr; max-width: 650px;" role="dialog">
+      <button type="button" class="modal-close-btn" onclick="window.closeServiceDetail()" aria-label="Close Modal">✕</button>
+      <div style="padding: 45px;">
+        <span class="section-kicker" id="service-modal-kicker">Service Details</span>
+        <h2 id="service-modal-title" style="margin-bottom: 16px;">Service Title</h2>
+        <p id="service-modal-desc" style="font-size: 1.05rem; line-height: 1.8; margin-bottom: 30px;">Detailed description</p>
+        <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+          <a href="#/contact" id="service-modal-enquiry-link" class="btn btn-primary" data-nav="contact">Make an Enquiry</a>
+          <button type="button" class="btn btn-outline-dark" onclick="window.closeServiceDetail()">Close Window</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       NATIVE MOBILE BOTTOM APP NAVIGATION DOCK
+       ======================================================================== -->
+  <nav class="mobile-app-dock" aria-label="Mobile Web App Dock">
+    <div class="mobile-app-dock-inner">
+      <button type="button" class="dock-item active" data-nav="home" aria-label="Home View">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+        <span>Home</span>
+      </button>
+      <button type="button" class="dock-item" data-nav="about" aria-label="About View">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+        <span>About</span>
+      </button>
+      <button type="button" class="dock-item" data-nav="services" aria-label="Services View">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+        <span>Services</span>
+      </button>
+      <button type="button" class="dock-item" data-nav="contact" aria-label="Contact View">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+        <span>Contact</span>
+      </button>
+      <button type="button" class="dock-item enquiry-trigger-btn" aria-label="Enquiry Cart">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+        <span>Enquiry</span>
+        <span class="dock-badge" style="display:none;">0</span>
+      </button>
+    </div>
+  </nav>
 
   <!-- ========================================================================
        FLOATING ACTION BUTTONS

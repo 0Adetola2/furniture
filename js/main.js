@@ -191,17 +191,82 @@ class TolexApp {
   init() {
     this.bindPWA();
     this.bindHeader();
+    this.bindSPARouter();
     this.bindEnquiryDrawer();
     this.bindProductCatalogue();
     this.bindQuickViewModal();
     this.bindTestimonials();
     this.bindContactForm();
     this.bindRoomStager();
+    this.bindBudgetEstimator();
     this.bindQuotationModal();
     this.bindVIPBooking();
     this.bindScrollEffects();
     this.updateEnquiryBadge();
     this.renderEnquiryItems();
+  }
+
+  /* --- SPA View Router (Instant App Transitions) --- */
+  bindSPARouter() {
+    const views = document.querySelectorAll('.spa-view');
+    if (!views.length) return; // If on legacy fallback page
+
+    const navTargets = document.querySelectorAll('[data-nav], [data-view]');
+
+    this.switchToView = (viewName) => {
+      const validViews = ['home', 'about', 'services', 'contact'];
+      if (!validViews.includes(viewName)) viewName = 'home';
+
+      views.forEach(v => {
+        if (v.id === `view-${viewName}`) {
+          v.classList.add('active');
+        } else {
+          v.classList.remove('active');
+        }
+      });
+
+      // Update Desktop & Mobile active states
+      navTargets.forEach(el => {
+        const target = el.getAttribute('data-nav') || el.getAttribute('data-view');
+        el.classList.toggle('active', target === viewName);
+      });
+
+      // Update URL hash without reload
+      if (window.location.hash !== `#/${viewName}`) {
+        window.history.pushState(null, null, `#/${viewName}`);
+      }
+
+      // Scroll smoothly to top
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      // Trigger scroll animations for new view
+      setTimeout(() => this.initRevealObserver(), 100);
+    };
+
+    // Handle hash on page load
+    const initialHash = window.location.hash.replace('#/', '').replace('#', '');
+    if (initialHash && document.getElementById(`view-${initialHash}`)) {
+      this.switchToView(initialHash);
+    } else {
+      this.switchToView('home');
+    }
+
+    // Hash change event (back/forward browser buttons)
+    window.addEventListener('hashchange', () => {
+      const hash = window.location.hash.replace('#/', '').replace('#', '');
+      this.switchToView(hash || 'home');
+    });
+
+    // Click handler for all navigation items
+    navTargets.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const targetView = btn.getAttribute('data-nav') || btn.getAttribute('data-view');
+        if (targetView) {
+          e.preventDefault();
+          this.switchToView(targetView);
+        }
+      });
+    });
   }
 
   /* --- PWA Service Worker & Install Prompt --- */
@@ -353,7 +418,7 @@ class TolexApp {
   }
 
   updateEnquiryBadge() {
-    const badges = document.querySelectorAll('.enquiry-badge');
+    const badges = document.querySelectorAll('.enquiry-badge, .dock-badge');
     const count = this.enquiryList.length;
     badges.forEach(badge => {
       badge.textContent = count;
@@ -1006,6 +1071,83 @@ class TolexApp {
     updateView();
   }
 
+  /* --- Interactive Room Budget & Investment Estimator --- */
+  bindBudgetEstimator() {
+    const tierBtns = document.querySelectorAll('.budget-tier-btn');
+    const rangeInput = document.getElementById('budget-room-count');
+    const countDisplay = document.getElementById('budget-room-count-display');
+    const totalDisplay = document.getElementById('budget-total-val');
+    const breakdownDisplay = document.getElementById('budget-room-breakdown');
+    const addFitoutBtn = document.getElementById('budget-add-enquiry-btn');
+
+    if (!rangeInput || !totalDisplay) return;
+
+    let selectedTier = 'atelier'; // default tier
+    const tierRates = {
+      signature: { name: 'Signature Luxury', ratePerRoom: 4500, leadTime: '4-6 Weeks' },
+      atelier: { name: 'Atelier Bespoke', ratePerRoom: 8500, leadTime: '6-8 Weeks' },
+      masterpiece: { name: 'Masterpiece Edition', ratePerRoom: 14500, leadTime: '8-12 Weeks' }
+    };
+
+    const updateBudget = () => {
+      const roomCount = parseInt(rangeInput.value, 10) || 1;
+      const tierInfo = tierRates[selectedTier] || tierRates.atelier;
+      const totalCost = roomCount * tierInfo.ratePerRoom;
+
+      if (countDisplay) {
+        countDisplay.textContent = `${roomCount} ${roomCount === 1 ? 'Room' : 'Rooms'}`;
+      }
+
+      totalDisplay.textContent = `$${totalCost.toLocaleString()}`;
+
+      if (breakdownDisplay) {
+        breakdownDisplay.textContent = `Includes full layout curation, bespoke millwork, curated lighting & installation (${tierInfo.leadTime}).`;
+      }
+    };
+
+    tierBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        tierBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        selectedTier = btn.getAttribute('data-tier') || 'atelier';
+        updateBudget();
+      });
+    });
+
+    rangeInput.addEventListener('input', updateBudget);
+
+    if (addFitoutBtn) {
+      addFitoutBtn.addEventListener('click', () => {
+        const roomCount = parseInt(rangeInput.value, 10) || 1;
+        const tierInfo = tierRates[selectedTier] || tierRates.atelier;
+        const totalCost = roomCount * tierInfo.ratePerRoom;
+
+        const fitoutId = `fitout-${selectedTier}-${roomCount}`;
+        const exists = this.enquiryList.some(item => item.id === fitoutId);
+        if (exists) {
+          this.showToast(`Custom ${tierInfo.name} Fitout is already in your list`);
+          this.openEnquiryDrawer();
+          return;
+        }
+
+        const customFitoutItem = {
+          id: fitoutId,
+          name: `${tierInfo.name} Fitout (${roomCount} ${roomCount === 1 ? 'Room' : 'Rooms'})`,
+          categoryLabel: 'Custom Interior Suite',
+          image: 'assets/images/hero_living.jpg',
+          dimensions: `${roomCount} Room Complete Package ($${totalCost.toLocaleString()})`
+        };
+
+        this.enquiryList.push(customFitoutItem);
+        this.saveEnquiries();
+        this.showToast(`Turnkey ${tierInfo.name} Fitout added to your Enquiry List!`);
+        this.openEnquiryDrawer();
+      });
+    }
+
+    updateBudget();
+  }
+
   /* --- Printable Formal Quotation PDF Generator --- */
   bindQuotationModal() {
     const quoteTriggerBtns = document.querySelectorAll('.btn-generate-quotation');
@@ -1134,4 +1276,55 @@ class TolexApp {
 // Global initialization
 document.addEventListener('DOMContentLoaded', () => {
   window.tolexApp = new TolexApp();
+
+  // Close service modal on backdrop click
+  const serviceModal = document.getElementById('service-modal-backdrop');
+  if (serviceModal) {
+    serviceModal.addEventListener('click', (e) => {
+      if (e.target === serviceModal) window.closeServiceDetail();
+    });
+  }
 });
+
+// Global Service Modal Handlers
+window.openServiceDetail = function(title, desc) {
+  const modal = document.getElementById('service-modal-backdrop');
+  if (!modal) return;
+  const titleEl = document.getElementById('service-modal-title');
+  const descEl = document.getElementById('service-modal-desc');
+  const linkEl = document.getElementById('service-modal-enquiry-link');
+
+  if (titleEl) titleEl.textContent = title;
+  if (descEl) descEl.textContent = desc;
+  if (linkEl) {
+    linkEl.setAttribute('data-nav', 'contact');
+    linkEl.onclick = (e) => {
+      e.preventDefault();
+      window.closeServiceDetail();
+      if (window.tolexApp) {
+        window.tolexApp.switchToView('contact');
+        const subjectSelect = document.getElementById('contact-subject');
+        if (subjectSelect) {
+          for (let i = 0; i < subjectSelect.options.length; i++) {
+            if (subjectSelect.options[i].text.toLowerCase().includes(title.toLowerCase()) ||
+                title.toLowerCase().includes(subjectSelect.options[i].value.toLowerCase())) {
+              subjectSelect.selectedIndex = i;
+              break;
+            }
+          }
+        }
+      }
+    };
+  }
+
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+};
+
+window.closeServiceDetail = function() {
+  const modal = document.getElementById('service-modal-backdrop');
+  if (modal) {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+};

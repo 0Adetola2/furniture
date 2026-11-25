@@ -3201,3 +3201,230 @@ textarea.form-control {
   .booking-slots-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
+/* ==========================================================================
+   NATIVE WEB APP: SPA ROUTER & LUXURY MOBILE BOTTOM APP DOCK
+   ========================================================================== */
+
+/* Single Page App Views */
+.spa-view {
+  display: none;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.spa-view.active {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Luxury Mobile Bottom App Bar */
+.mobile-app-dock {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 68px;
+  background: rgba(26, 23, 22, 0.96);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-top: 1px solid rgba(197, 166, 110, 0.3);
+  z-index: 1040;
+  padding: 0 10px;
+  box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.45);
+}
+
+.mobile-app-dock-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 100%;
+  max-width: 540px;
+  margin: 0 auto;
+}
+
+.dock-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  color: var(--c-taupe-light);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 6px 12px;
+  border-radius: var(--radius-xs);
+  cursor: pointer;
+  position: relative;
+  transition: all var(--transition-fast);
+}
+
+.dock-item svg {
+  width: 20px;
+  height: 20px;
+  transition: transform var(--transition-fast), color var(--transition-fast);
+}
+
+.dock-item.active {
+  color: var(--c-gold);
+}
+
+.dock-item.active svg {
+  transform: translateY(-2px);
+  color: var(--c-gold);
+  filter: drop-shadow(0 0 6px rgba(197, 166, 110, 0.5));
+}
+
+.dock-badge {
+  position: absolute;
+  top: 4px;
+  right: 14px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  background-color: var(--c-gold);
+  color: var(--c-charcoal-deep);
+  font-size: 0.65rem;
+  font-weight: 800;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 992px) {
+  .mobile-app-dock {
+    display: block;
+  }
+  body {
+    padding-bottom: 70px; /* Space for the bottom app bar */
+  }
+  .floating-whatsapp-btn {
+    bottom: 84px;
+    right: 20px;
+    width: 52px;
+    height: 52px;
+  }
+  .back-to-top-btn {
+    bottom: 146px;
+    right: 20px;
+    width: 44px;
+    height: 44px;
+  }
+}
+
+/* Interactive Room Budget & Investment Estimator */
+.budget-estimator-card {
+  background: var(--c-white);
+  border: 1px solid rgba(161, 139, 120, 0.28);
+  border-radius: var(--radius-md);
+  padding: 40px;
+  box-shadow: var(--shadow-md);
+}
+
+.budget-tier-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 20px 0 28px;
+}
+
+.budget-tier-btn {
+  padding: 20px 16px;
+  border: 1.5px solid rgba(161, 139, 120, 0.25);
+  border-radius: var(--radius-sm);
+  background: var(--c-warm-white);
+  text-align: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.budget-tier-btn:hover,
+.budget-tier-btn.active {
+  border-color: var(--c-gold);
+  background: var(--c-charcoal-deep);
+  color: var(--c-white);
+  box-shadow: var(--shadow-gold);
+}
+
+.budget-tier-btn.active .tier-name {
+  color: var(--c-gold);
+}
+
+.tier-name {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--c-charcoal-deep);
+  margin-bottom: 6px;
+}
+
+.tier-desc {
+  font-size: 0.78rem;
+  color: var(--c-text-muted);
+}
+
+.budget-slider-wrap {
+  margin: 24px 0 32px;
+}
+
+.budget-slider-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.budget-range-input {
+  width: 100%;
+  height: 8px;
+  border-radius: 4px;
+  background: rgba(161, 139, 120, 0.25);
+  outline: none;
+  -webkit-appearance: none;
+}
+
+.budget-range-input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--c-gold);
+  cursor: pointer;
+  border: 3px solid var(--c-charcoal-deep);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.budget-summary-box {
+  background: var(--c-charcoal-deep);
+  color: var(--c-white);
+  padding: 26px 30px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.budget-total-val {
+  font-family: var(--font-serif);
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--c-gold);
+  line-height: 1;
+}
+
+@media (max-width: 768px) {
+  .budget-tier-grid { grid-template-columns: 1fr; }
+  .budget-estimator-card { padding: 24px; }
+  .budget-summary-box { flex-direction: column; text-align: center; }
+}
+
+

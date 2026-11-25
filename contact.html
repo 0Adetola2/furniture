@@ -2,6 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <script>
+    const service = new URLSearchParams(window.location.search).get('service');
+    window.location.replace('index.html#/contact' + (service ? '?service=' + encodeURIComponent(service) : ''));
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact Us & Visit Showroom — TOLEX FURNITURE</title>
   <meta name="description" content="Connect with TOLEX FURNITURE Showroom. Book a private styling consultation, send an inquiry, or visit our design gallery. Located in the Design District.">

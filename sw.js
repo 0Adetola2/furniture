@@ -3,7 +3,7 @@
  * Fast offline caching, asset pre-fetching, and instant application load
  */
 
-const CACHE_NAME = 'tolex-furniture-v1.2';
+const CACHE_NAME = 'tolex-furniture-v2.0-spa';
 const APP_SHELL = [
   './',
   './index.html',
